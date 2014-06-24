@@ -12,10 +12,11 @@ describe('Routes - General', function () {
 		server;
 
 	beforeEach(function (done) {
-		server = app.listen(port, function () {
-			console.log('app now listening on ' + port);
-			done();
-		});
+        app.start(port, function(_server){
+			console.log('Dev: App now listening on ' + port);
+            server = _server;
+            done();
+        });
 	});
 
 	afterEach(function () {
