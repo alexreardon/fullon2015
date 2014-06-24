@@ -1,7 +1,7 @@
 {
-  "name": "stphils-fullon2014",
-  "subdomain": "stphils-fullon2014",
-  "version": "1.0.1",
+  "name": "stphils-fullon2015",
+  "subdomain": "stphils-fullon2015",
+  "version": "1.0.0",
   "description": "st phils full on website",
   "main": "server.js",
   "scripts": {
