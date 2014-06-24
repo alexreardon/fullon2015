@@ -1,4 +1,4 @@
-Full On Website [![Build Status](https://travis-ci.org/alexreardon/fullon.png)](https://travis-ci.org/alexreardon/fullon)
+Full On Website [![Build Status](https://travis-ci.org/alexreardon/fullon2015.png)](https://travis-ci.org/alexreardon/fullon2015)
 ===============
 
 ### Website
