@@ -7,7 +7,9 @@
   background-position: center center;
   background-attachment: fixed;
   @include background-size(cover);
-  height: 100vh;
+  height: 100%;
+  position: fixed;
+  width: 100%;
 
   $periods: morning, late-morning, afternoon, late-afternoon, evening, night, late-night;
 
@@ -32,7 +34,7 @@ footer {
   position: absolute;
   left: 50%;
   margin-left: -1 * ($width * 3 + $margin * 6) / 2;
-  margin-bottom: 5vh;
+  margin-bottom: 4%;
 
   a {
     margin-left: $margin;

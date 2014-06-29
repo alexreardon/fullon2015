@@ -4522,7 +4522,9 @@ button.close {
   -ms-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100vh; }
+  height: 100%;
+  position: fixed;
+  width: 100%; }
   .coming-soon.morning {
     background-image: url(/public/images/8bitbackground/morning.jpg); }
   .coming-soon.late-morning {
@@ -4549,7 +4551,7 @@ footer {
   position: absolute;
   left: 50%;
   margin-left: -66px;
-  margin-bottom: 5vh; }
+  margin-bottom: 4%; }
   footer a {
     margin-left: 6px;
     margin-right: 6px;
