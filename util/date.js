@@ -6,10 +6,10 @@ var moment = require('moment'),
 var time_periods = {
     'morning': [5, 6, 7, 8, 9],
     'late-morning': [10, 11, 12],
-    'afternoon': [13, 14, 15],
-    'late-afternoon': [16, 17, 18],
-    'evening': [19, 20, 21],
-    'late-night': [22, 23, 0, 1, 2, 3, 4]
+    'afternoon': [13, 14],
+    'late-afternoon': [15, 16, 17],
+    'evening': [18, 19, 20],
+    'late-night': [21, 22, 23, 0, 1, 2, 3, 4]
 };
 
 exports.get_days_until = function (end_date) {
