@@ -4587,6 +4587,7 @@ button.close {
   src: url('/public/font/minecraftfont.eot?#iefix') format('embedded-opentype'), url('/public/font/minecraftfont.woff') format('woff'), url('/public/font/minecraftfont.ttf') format('truetype'), url('/public/font/minecraftfont.svg#minecraftfont') format('svg'); }
 
 .coming-soon {
+  color: #fff;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
