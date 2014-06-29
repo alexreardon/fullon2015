@@ -13,9 +13,8 @@ results
 
 npm-debug.log
 node_modules
-
-#Custom Rules
-
-.idea/
+bower_components
+.sass-cache
+.idea
 #public/js/build/**/*
 #public/css/build.css

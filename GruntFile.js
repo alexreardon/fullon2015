@@ -35,7 +35,8 @@ module.exports = function (grunt) {
 
 		handlebars_templates = 'public/js/template/**/*.handlebars',
 
-		less_files = ['public/less/**/*.less'];
+		less_files = ['public/less/**/*.less'],
+        sass_files = ['public/scss/**/*.scss'];
 
 	// Project configuration.
 	grunt.initConfig({
@@ -72,6 +73,19 @@ module.exports = function (grunt) {
 			}
 		},
 
+        sass: {                                    // task
+            dist: {                                // target
+                files: {                        // dictionary of files
+                    'public/css/main.css': 'public/scss/main.scss'        // 'destination': 'source'
+                },
+                options: {
+                    // includePaths: require('node-bourbon').with('other/path', 'another/path')
+                    // - or -
+                    includePaths: require('node-bourbon').includePaths
+                }
+            }
+        },
+
 		concat: {
 			lib: {
 				src: client_js_lib_files,
@@ -88,7 +102,6 @@ module.exports = function (grunt) {
 				options: {
 					mangle: false,
 					compress: true,
-					report: 'min',
 					banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
 						'<%= grunt.template.today("dd-mm-yyyy") %> */'
 				},
@@ -125,7 +138,11 @@ module.exports = function (grunt) {
 				tasks: ['jshint:client', 'concat:register'],
 				files: client_js_files
 			},
-			css: {
+            sass: {
+                tasks: ['sass'],
+                files: sass_files
+            },
+			less: {
 				tasks: ['less:dev'],
 				files: less_files
 			}
@@ -161,9 +178,11 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-nodemon');
 	grunt.loadNpmTasks('grunt-concurrent');
+	grunt.loadNpmTasks('grunt-sass');
 
 	//Development
-	grunt.registerTask('dev', ['less:dev', 'browserify', 'concat']);
+//	grunt.registerTask('dev', ['less:dev', 'browserify', 'concat']);
+	grunt.registerTask('dev', ['sass', 'browserify', 'concat']);
 
 	grunt.registerTask('run', ['concurrent:target']);
 

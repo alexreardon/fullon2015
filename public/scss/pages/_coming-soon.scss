@@ -1,0 +1,44 @@
+@mixin background-size($types...) {
+  @include prefixer(background-size, $types, webkit moz ms o spec);
+}
+
+.coming-soon {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  @include background-size(cover);
+  height: 100vh;
+
+  $periods: morning, late-morning, afternoon, late-afternoon, evening, night, late-night;
+
+  @each $period in $periods {
+    &.#{$period} {
+      background-image: url(/public/images/8bitbackground/#{$period}.jpg);
+    }
+  }
+}
+
+.coming-soon-title {
+  font-size: 8rem;
+  @media (min-width: $screen-sm-min) {
+    font-size: 13rem;
+  }
+}
+
+footer {
+  $width: 32px;
+  $margin: 6px;
+  bottom: 0;
+  position: absolute;
+  left: 50%;
+  margin-left: -1 * ($width * 3 + $margin * 6) / 2;
+  margin-bottom: 5vh;
+
+  a {
+    margin-left: $margin;
+    margin-right: $margin;
+    width: $width;
+    height: $width;
+    display: inline-block;
+  }
+}
