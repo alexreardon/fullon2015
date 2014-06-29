@@ -11,6 +11,6 @@ deploy:
   provider: heroku
   api_key:
     secure: P83nln1pXEzCYXKe08eKcMOqjImomAb2rMls/PNxnEeTlG4A7FeoWANqHze4HrJ8tWM0ifG/+wXasWYQ9iponiiIt4ms34cAOazElxVyKpARxzeqAIKGNFHWLSVdhu1dtl1pwjey3GE0uR3JDtPNPlQAgmJ/crHSJAHh3qinLik=
-  app: fullon2014
+  app: stphils-fullon2014
   on:
     repo: alexreardon/fullon2015
