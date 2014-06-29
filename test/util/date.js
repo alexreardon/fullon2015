@@ -17,7 +17,7 @@ describe('Date - Days until', function () {
 
 });
 
-describe.only('Date - get time of day period', function () {
+describe('Date - get time of day period', function () {
     it('should get a result for every hours', function () {
         for (var hour = 0; hour < 23; hour++) {
             expect(date.get_current_time_period(hour)).to.be.ok();
