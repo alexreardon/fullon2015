@@ -3,6 +3,7 @@ module.exports = function (grunt) {
 	var node_js_files = [
 			'**/*.js',
 			'!node_modules/**/*.js',
+			'!bower_components/**/*.js',
 			'!public/**/*.js'
 		],
 

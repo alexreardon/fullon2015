@@ -36,11 +36,11 @@ exports.get_page_data = function () {
 
 exports.get_current_time_period = function (hour) {
     var now = moment(),
-        hour = hour || now.hour();
+        current_hour = hour || now.hour();
 
     var result;
     _.each(time_periods, function (item, key) {
-        if (_.contains(item, hour)) {
+        if (_.contains(item, current_hour)) {
             result = key;
         }
     });

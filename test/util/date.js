@@ -23,12 +23,12 @@ describe.only('Date - get time of day period', function () {
             expect(date.get_current_time_period(hour)).to.be.ok();
         }
     });
-    it('should use the current hour to get the correct period', function(){
-       var now = moment(),
-           current_hour = now.hour();
+    it('should use the current hour to get the correct period', function () {
+        var now = moment(),
+            current_hour = now.hour();
 
-       var no_args_result = date.get_current_time_period(),
-           args_result = date.get_current_time_period(current_hour);
+        var no_args_result = date.get_current_time_period(),
+            args_result = date.get_current_time_period(current_hour);
 
         expect(no_args_result).to.eql(args_result);
     });
