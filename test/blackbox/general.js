@@ -34,7 +34,7 @@ describe('Routes - General', function () {
 		});
 	});
 
-	it('should serve 404 pages', function (done) {
+	it.skip('should serve 404 pages', function (done) {
 		request(get_path('/some/fake/route'), function (error, response, body) {
 			expect(response.statusCode).to.be(404);
 			done();
