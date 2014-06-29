@@ -188,7 +188,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('run', ['concurrent:target']);
 
 	//Release
-	grunt.registerTask('default', ['jshint', 'less:prod', 'browserify', 'concat', 'uglify:prod']);
+	grunt.registerTask('default', ['jshint', 'sass', 'browserify', 'concat', 'uglify:prod']);
 
 	//Heroku
 	// grunt.registerTask('heroku:production', 'default');
