@@ -72,7 +72,10 @@
 		"after",
 		"afterEach",
 		"process",
-		"module"
+		"module",
+        "$",
+        "$f",
+        "_"
 	]
 
 }

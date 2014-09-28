@@ -1,14 +1,18 @@
 // burbon
 @import '../../bower_components/bourbon/app/assets/stylesheets/bourbon';
 
+@import 'typography';
+
 // bootstrap overrides;
 @import 'overrides';
 
 // bootstrap general (lazy)
 @import '../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap';
+@import '../../bower_components/fontawesome/scss/font-awesome';
 
 // general
-@import 'typography';
+@import 'mixins';
+@import 'animate';
 
 // pages
-@import 'pages/coming-soon';
+@import 'pages/index';
