@@ -1,4 +1,8 @@
-$z-index-video: -100 !default;
+$z-index-video: 10 !default;
+$z-index-content: 20 !default;
+$z-index-logo: 30;
+
+$transition-duration: 1.0s;
 
 .video-container {
     position: relative;
@@ -17,6 +21,8 @@ $z-index-video: -100 !default;
 }
 
 .landing {
+    background-color: black;
+//    height: 500px;
     height: 100vh;
     position: relative;
     overflow: hidden;
@@ -31,13 +37,13 @@ $z-index-video: -100 !default;
     min-width: 100%;
     min-height: 100%;
     top: 0;
+    bottom: 0;
     opacity: 0;
-    z-index: 100;
+    z-index: $z-index-video;
 
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
+    @include transition-property (opacity);
+    @include transition-duration($transition-duration);
+    @include transition-timing-function(ease);
 
     &.is-ready {
         opacity: 1;
@@ -52,7 +58,7 @@ $z-index-video: -100 !default;
     height: 100%;
     position: relative;
     width: 100%;
-    z-index: 200;
+    z-index: $z-index-content;
 
     .video-container {
         margin-top: $navbar-height * 2;
@@ -73,27 +79,27 @@ $z-index-video: -100 !default;
     position: absolute;
     top: $top;
     width: $width;
+    z-index: $z-index-logo;
 
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
+    @include transition-property (all);
+    @include transition-duration($transition-duration);
+    @include transition-timing-function(ease);
 
     &.is-trailer-playing {
-        transform: translateY(-$top + $navbar-height - ($grid-gutter-width / 2)) scale(0.5);
+        @include transform(translateY(-$top + $navbar-height - ($grid-gutter-width / 2)) scale(0.5));
     }
 
 }
 
 #trailer-video {
-//    opacity: 0;
+    opacity: 0;
+    z-index: $z-index-video;
 
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
+    @include transition-property (all);
+    @include transition-duration($transition-duration);
+    @include transition-timing-function(ease);
 
-    .is-trailer-playing {
+    &.is-trailer-playing {
         opacity: 1;
     }
 }
@@ -109,11 +115,11 @@ $z-index-video: -100 !default;
     opacity: 0;
     text-transform: uppercase;
     width: $width;
+    z-index: $z-index-logo;
 
-    -webkit-transition: opacity 1s ease;
-    -moz-transition: opacity 1s ease;
-    -o-transition: opacity 1s ease;
-    -ms-transition: opacity 1s ease;
+    @include transition-property (opacity);
+    @include transition-duration($transition-duration);
+    @include transition-timing-function(ease);
 
     > .fa {
         padding-right: $padding-base-horizontal;
@@ -122,6 +128,18 @@ $z-index-video: -100 !default;
     &.is-ready {
         opacity: 1;
     }
+
+    &.is-trailer-playing {
+        opacity: 0;
+    }
+}
+
+.landing-navbar {
+    opacity: 1;
+
+    @include transition-property (opacity);
+    @include transition-duration($transition-duration);
+    @include transition-timing-function(ease);
 
     &.is-trailer-playing {
         opacity: 0;
