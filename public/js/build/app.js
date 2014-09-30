@@ -10,24 +10,58 @@ _.extend(fullon.vent, Backbone.Events);
 // modules
 //fullon.validation = require('../../util/validation');
 
+fullon.views.common = Backbone.View.extend({
+
+    initialize: function() {
+        this.$full_screen = $('.l-full-screen');
+        this.$nav = $('.nav-bar');
+
+        this.throttled_resize = _.debounce(this.resize, 100);
+
+        this.resize();
+
+        $(window).on('resize', function () {
+            this.throttled_resize();
+        }.bind(this));
+
+
+    },
+
+    resize: function () {
+        // crappy iOS doesn't like 100vh; Need to set the height manually
+        console.log('window resize - common');
+
+        var height = this.get_min_height();
+        this.$full_screen.css('min-height', height);
+
+    },
+
+    get_min_height: function () {
+        return ($(window).height() - this.$nav.height());
+    }
+});
+
+(function() {
+    var common = new fullon.views.common();
+})();
+
 
 
 fullon.views.index = Backbone.View.extend({
 
     initialize: function() {
-        this.$nav_bar = $('.landing-navbar');
+        this.$nav_bar = $('.fo-navbar');
+        this.$landing = $('.landing');
         this.$landing_video = $('.landing-video');
         this.landing_video = this.$landing_video[0];
-        this.$trailer_video_launch = $('.trailer-video-launch');
-        this.$landing_logo = $('.landing-logo');
 
+        this.$trailer_video_launch = $('.trailer-video-launch');
         this.$trailer_video = $('#trailer-video');
         this.$f_trailer_video_iframe = $f(this.$trailer_video[0]);
 
         this.$f_trailer_video_iframe.addEvent('ready', function(player_id) {
             this.onTrailerVideoReady(player_id);
         }.bind(this));
-
 
         this.$trailer_video_launch.on('click', function(event) {
             this.showTrailer();
@@ -38,8 +72,6 @@ fullon.views.index = Backbone.View.extend({
         }.bind(this);
 
     },
-
-
 
     onLandingVideoReady: function() {
 
@@ -84,25 +116,17 @@ fullon.views.index = Backbone.View.extend({
     setTrailerMode: function(show) {
         var method = show ? 'addClass' : 'removeClass';
 
-        this.$landing_video[method]('is-trailer-playing');
-        this.$landing_logo[method]('is-trailer-playing');
-        console.log('adding method to video launch', method, this.$trailer_video_launch);
+        this.$landing[method]('is-trailer-playing');
 
+        // hide navbar
         this.$nav_bar[method]('is-trailer-playing');
-        // turn off the button
-        this.$trailer_video_launch[method]('is-trailer-playing');
+
+
         if (show) {
             this.$trailer_video_launch.attr('disabled', 'disabled');
-        } else {
-            this.$trailer_video_launch.removeAttr('disabled');
-        }
-
-        // play the video
-        this.$trailer_video[method]('is-trailer-playing');
-
-        if (show) {
             this.$f_trailer_video_iframe.api('play');
         } else {
+            this.$trailer_video_launch.removeAttr('disabled');
             this.$f_trailer_video_iframe.api('unload');
         }
     }

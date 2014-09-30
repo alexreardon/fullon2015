@@ -18,3 +18,5 @@ bower_components
 .idea
 #public/js/build/**/*
 #public/css/build.css
+
+*.DS_Store

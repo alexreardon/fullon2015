@@ -17,6 +17,9 @@ $padding-base-vertical:     6px !default;
 $padding-base-horizontal:   12px !default;
 
 //$body-bg:               #fff !default;
+$navbar-inverse-link-color: $text-color;
+$navbar-inverse-link-hover-color: darken($text-color, 30%);
+$navbar-inverse-bg: $body-bg;
 
 
 $font-family-sans-serif:  $fo_font_body, Arial, sans-serif !default;

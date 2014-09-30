@@ -27,7 +27,7 @@
 </head>
 <body>
 
-<nav class="landing-navbar navbar navbar-fixed-top navbar-inverse" role="navigation">
+<nav class="fo-navbar navbar navbar-fixed-top navbar-inverse" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -37,8 +37,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/#">Full On</a>
-            <a class="navbar-brand" href="http://stphils.org.au/">St Phils</a>
+            <a class="navbar-brand fo-navbar-fo-logo" href="/#">Full On</a>
+            <a class="navbar-brand fo-navbar-stphils-logo" href="http://stphils.org.au/">St Phils</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,7 +47,7 @@
                 <li><a href="/#about">About</a></li>
                 <li><a href="/#contact">Contact</a></li>
                 <li><a href="/#media">Media</a></li>
-                <li><a href="/register" class="btn btn-primary">Register</a></li>
+                <li><a href="/register">Register</a></li>
 
             </ul>
         </div>
@@ -56,7 +56,7 @@
     <!-- /.container-fluid -->
 </nav>
 
-<section class="landing">
+<section class="landing l-full-screen">
 
     <div class="landing-content">
 
@@ -70,17 +70,20 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <div class="video-container">
+                        <div class="video-container-overlay"></div>
                         <iframe id="trailer-video" src="//player.vimeo.com/video/105225090?title=0&amp;byline=0&amp;portrait=0&amp;api=1&amp;player_id=trailer-video" width="420" height="236" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <video class="landing-video animated" poster="/public/images/landing/landing.jpg" muted loop>
+    <div class="landing-video-mobile-background visible-xs"></div>
+    <video class="landing-video animated hidden-xs" poster="/public/images/landing/landing.jpg" muted loop>
         <source src="/public/video/landing.webm" type="video/webm">
         <source src="/public/video/landing.mp4" type="video/mp4">
         <source src="/public/video/landing.ogv" type="video/ogg">
     </video>
+
 
 </section>
 <section>
@@ -122,7 +125,8 @@
 
     </div>
     <div class="col-md-6">
-        <img id="img_campsite" class="img-responsive img-thumbnail" src="/public/images/campsite.jpg" alt="Campsite"/>
+        <img id="img_campsite" class="img-responsive l-img-border l-center" src="/public/images/campsite.jpg" alt="Campsite">
+
 
         <p class="text-center">Our beautiful waterside campsite</p>
 
@@ -322,8 +326,7 @@
         credit card.
         <a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works"
            onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">
-            <img id="paypal" src="/public/images/paypal.jpg"
-                 alt="PayPal Acceptance Mark">
+            <img src="https://www.paypalobjects.com/webstatic/en_AU/i/buttons/btn_paywith_primary_l.png" alt="Pay with PayPal" />
         </a>
 
         <h3>Other</h3>
@@ -383,10 +386,6 @@
 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#video-modal">
     Launch demo modal
 </button>
-
-<iframe src="//player.vimeo.com/video/77024814?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933"
-        width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen
-        allowfullscreen></iframe>
 
 
 <script src="/public/js/build/lib.js"></script>

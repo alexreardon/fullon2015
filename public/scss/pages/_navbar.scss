@@ -1,0 +1,50 @@
+.fo-navbar {
+    opacity: 1;
+
+    @include transition-property(opacity);
+    @include transition-duration($transition-duration);
+    @include transition-timing-function(ease);
+
+    &.is-trailer-playing {
+        opacity: 0;
+    }
+
+    li > a {
+        font-size: $font-size-large; // 18px;
+    }
+}
+
+.fo-navbar-stphils-logo {
+    $width: $navbar-height - ($padding-base-vertical * 2);
+    background-image: url("/public/images/stphils-logo-transparent-colour.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: $width $width;
+
+    margin-left: 0 !important;
+    text-indent: -100001px;
+
+}
+
+.fo-navbar-fo-logo {
+    $width: 280px;
+    $height: 93px;
+    $ratio: $width / $height;
+    $adjusted_height: $navbar-height - ($padding-base-vertical * 2);
+    $adjusted_width: $ratio * $adjusted_height;
+
+    background-image: url("/public/images/logo/FullOnLogo-01_W_TinyPNG.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: $adjusted_width $adjusted_height;
+
+    margin-left: 0 !important;
+
+    text-indent: -100001px;
+    width: $adjusted_width;
+
+    // mobile only
+    @media (max-width: $screen-xs-max) {
+        margin-left: $grid-gutter-width / 2 !important;
+    }
+}

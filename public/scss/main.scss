@@ -4,6 +4,8 @@
 @import 'typography';
 
 // bootstrap overrides;
+//@import '../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables';
+@import 'variables';
 @import 'overrides';
 
 // bootstrap general (lazy)
@@ -12,7 +14,8 @@
 
 // general
 @import 'mixins';
-@import 'animate';
+@import 'layout';
 
 // pages
+@import 'pages/navbar';
 @import 'pages/index';

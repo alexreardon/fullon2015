@@ -1,13 +1,14 @@
-$z-index-video: 10 !default;
+$z-index-landing-video: 10 !default;
+$z-index-landing-video-overlay: 15 !default;
 $z-index-content: 20 !default;
 $z-index-logo: 30;
-
-$transition-duration: 1.0s;
 
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
-    padding-top: 30px; height: 0; overflow: hidden;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
 }
 
 .video-container iframe,
@@ -20,28 +21,52 @@ $transition-duration: 1.0s;
     height: 100%;
 }
 
+.video-container-overlay {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    // block the video when it should not be clicked
+    z-index: $z-index-landing-video-overlay;
+
+    .is-trailer-playing & {
+        display: none;
+    }
+
+}
+
 .landing {
     background-color: black;
-//    height: 500px;
-    height: 100vh;
+
+    // fallback
     position: relative;
     overflow: hidden;
     width: 100%;
+
+    > * {
+        bottom: 0;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        width: 100%;
+    }
+
 }
 
 .landing-video {
-    position: absolute;
-//    background-image: url("/public/images/landing/landing.jpg");
-//    background-repeat: no-repeat;
-//    background-size: cover;
+
+    height: auto;
     min-width: 100%;
     min-height: 100%;
-    top: 0;
-    bottom: 0;
-    opacity: 0;
-    z-index: $z-index-video;
 
-    @include transition-property (opacity);
+    opacity: 0;
+    // allow for stretch
+    width: auto;
+    z-index: $z-index-landing-video;
+
+    @include transition-property(opacity);
     @include transition-duration($transition-duration);
     @include transition-timing-function(ease);
 
@@ -49,15 +74,29 @@ $transition-duration: 1.0s;
         opacity: 1;
     }
 
-    &.is-trailer-playing {
+    .is-trailer-playing & {
+        opacity: 0;
+    }
+}
+
+.landing-video-mobile-background {
+
+    @include transition-property(opacity);
+    @include transition-duration($transition-duration);
+    @include transition-timing-function(ease);
+
+    background-image: url("/public/images/landing/landing.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
+    z-index: $z-index-landing-video;
+
+    .is-trailer-playing & {
         opacity: 0;
     }
 }
 
 .landing-content {
-    height: 100%;
-    position: relative;
-    width: 100%;
     z-index: $z-index-content;
 
     .video-container {
@@ -81,11 +120,11 @@ $transition-duration: 1.0s;
     width: $width;
     z-index: $z-index-logo;
 
-    @include transition-property (all);
+    @include transition-property(all);
     @include transition-duration($transition-duration);
     @include transition-timing-function(ease);
 
-    &.is-trailer-playing {
+    .is-trailer-playing & {
         @include transform(translateY(-$top + $navbar-height - ($grid-gutter-width / 2)) scale(0.5));
     }
 
@@ -93,13 +132,13 @@ $transition-duration: 1.0s;
 
 #trailer-video {
     opacity: 0;
-    z-index: $z-index-video;
+    z-index: $z-index-landing-video;
 
-    @include transition-property (all);
+    @include transition-property(all);
     @include transition-duration($transition-duration);
     @include transition-timing-function(ease);
 
-    &.is-trailer-playing {
+    .is-trailer-playing & {
         opacity: 1;
     }
 }
@@ -117,7 +156,7 @@ $transition-duration: 1.0s;
     width: $width;
     z-index: $z-index-logo;
 
-    @include transition-property (opacity);
+    @include transition-property(opacity);
     @include transition-duration($transition-duration);
     @include transition-timing-function(ease);
 
@@ -129,19 +168,8 @@ $transition-duration: 1.0s;
         opacity: 1;
     }
 
-    &.is-trailer-playing {
+    .is-trailer-playing & {
         opacity: 0;
     }
 }
 
-.landing-navbar {
-    opacity: 1;
-
-    @include transition-property (opacity);
-    @include transition-duration($transition-duration);
-    @include transition-timing-function(ease);
-
-    &.is-trailer-playing {
-        opacity: 0;
-    }
-}
