@@ -69,9 +69,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-                    <div class="video-container">
+                    <div class="embed-responsive embed-responsive-16by9 landing-video-container">
                         <div class="video-container-overlay"></div>
-                        <iframe id="trailer-video" src="//player.vimeo.com/video/105225090?title=0&amp;byline=0&amp;portrait=0&amp;api=1&amp;player_id=trailer-video" width="420" height="236" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <iframe class="embed-responsive-item" id="trailer-video" src="//player.vimeo.com/video/105225090?title=0&amp;byline=0&amp;portrait=0&amp;api=1&amp;player_id=trailer-video" width="420" height="236" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -86,65 +86,56 @@
 
 
 </section>
-<section>
+<section class="l-margin-top-gutter">
 <div class="container">
 
 <div class="row">
-    <div class="col-md-6">
-        <h2>2nd - 7th Jan 2015</h2>
-
-        <p>
-            Full On is a <a title="St Philip’s Eastwood Anglican Church" href="http://en.stphils.org.au/">St Philip’s
-            Eastwood Anglican Church</a> summer youth camp.
-            It is for youth in years 6-12.
-            Full On is a specifically Christian camp where the students will learn from the Bible about who
-            Jesus is and what it means to follow him. It is also a week of "Full On" fun and activities, indoor and
-            outdoors, in a loving community.
-        </p>
-
-        <h2>When?</h2>
-
-        <p>{{config.date_camp_start}}</p>
-
-        <p>Full On will take place on 1st-6th of January 2014.</p>
-
-        <h2>When do registrations close?</h2>
-
-        <p>
-            Registrations are currently
-            {{#if data.is_registration_open}}
-                <a class="text-success" href="/register"><strong>open</strong>.</a>
-            {{else}}
-                <strong class="text-danger">closed.</strong>
-            {{/if}}
-
-        <p>
-            Registrations will close on {{config.date_register_end}}
-            {{#if data.is_registration_open}} ({{data.days_to_registration_close}} days to go!){{/if}}
-        </p>
-
-    </div>
-    <div class="col-md-6">
-        <img id="img_campsite" class="img-responsive l-img-border l-center" src="/public/images/campsite.jpg" alt="Campsite">
-
-
-        <p class="text-center">Our beautiful waterside campsite</p>
-
-        <p>
-            It will be held at the picturesque <a href="http://www.youthworks.net/conferencecentres/port_hacking">Anglican
-            Youthworks Conference Centres at Port Hacking</a>, in the Royal National Park. Situated on the shores of the
-            Port Hacking River, these centres are located at the northern end of
-            the Royal National Park about a 1 hour drive from Sydney.The centre boasts 5 accommodation centers of
-            varying size with modern accommodation, outdoor activity options and catering facilities.
-        </p>
-
-
+    <div class="col-xs-12">
+        <h2 class="text-center">About <i class="fa fa-info-circle"></i></h2>
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-6">
-        <h2>What will we do?</h2>
+        <h3><i class="fa fa-fw fa-rocket"></i> What is Full On?</h3>
+
+        <p>
+            Full On is a <a title="St Philip’s Eastwood Anglican Church" href="http://en.stphils.org.au/">St Philip’s
+            Eastwood Anglican Church</a> summer youth camp.
+            It is for youth in years <strong>6-12.</strong>
+            Full On is a specifically Christian camp where the students will learn from the Bible about who
+            Jesus is and what it means to follow him. It is also a week of "Full On" fun and activities, indoor and
+            outdoors, in a loving community.
+        </p>
+
+        <h3><i class="fa fa-fw fa-calendar"></i> When?</h3>
+
+        <p>Full On will take place on 2st-8th January 2014.</p>
+
+        <h3><i class="fa fa-fw fa-pencil"></i> Registrations</h3>
+
+
+
+        {{#if data.is_registration_open}}
+            <p>
+                Registrations close on <strong>{{config.date_register_end}}</strong>
+                ({{data.days_to_registration_close}} days to go!)<br>
+                For more information about pricing, see <a href="/#pricing">pricing</a>.
+            </p>
+
+            <p>
+                <button class="btn btn-primary btn-lg text-uppercase">
+                    Register Now
+                </button>
+            </p>
+
+        {{else}}
+            <p>
+                Registrations are <strong class="text-danger">closed.</strong>
+            </p>
+        {{/if}}
+
+        <h3><i class="fa fa-fw fa-group"></i> What will we do?</h3>
 
         <p>
             At camp you will experience the following "Full On" activities:
@@ -165,9 +156,21 @@
             <li><strong>Plus much, much more!</strong> (see <a href="#media">Visual Media</a> for a taste!)</li>
         </ul>
 
+
     </div>
     <div class="col-md-6">
-        <h2>Travelling to and from Camp</h2>
+        <h3><i class="fa fa-fw fa-map-marker"></i> Where?</h3>
+        <img id="img_campsite" class="img-responsive l-img-border" src="/public/images/campsite.jpg" alt="Campsite">
+
+
+        <!--<p class="text-center">Our beautiful waterside campsite</p>-->
+
+        <p>
+            The picturesque <a href="http://www.youthworks.net/conferencecentres/port_hacking">Anglican
+            Youthworks Conference Centres at Port Hacking</a>, in the Royal National Park.
+        </p>
+
+        <h3><i class="fa fa-fw fa-bus"></i> Travelling to and from Camp</h3>
 
         <p>
             We will be traveling to and from camp by coach (who needs eagles?).
@@ -183,12 +186,20 @@
             by 1.30 pm.  Please contact Mike Smith (see <a href="#contact">Contact</a>) if there is
             any reason you need to travel separately to or from camp.
         </p>
+
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2 class="text-center">What to Bring</h2>
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-6">
-        <h3>General</h3>
+        <h3><i class="fa fa-fw fa-tag"></i> General</h3>
         <ul>
             <li>Beach towel</li>
             <li>Bible &amp; Pen (<strong>not optional</strong>)</li>
@@ -211,7 +222,7 @@
             </li>
             <li>Torch (you will need it for our journey to Mordor)</li>
         </ul>
-        <h3>Night Time</h3>
+        <h3><i class="fa fa-fw fa-moon-o"></i> Night Time</h3>
         <ul>
             <li>Pillowslip (Pillows and blankets are provided.  Pillowslips ensure you don’t catch the last persons head
                 lice)
@@ -222,12 +233,12 @@
 
     </div>
     <div class="col-md-6">
-        <h3>Hygiene <span class="text-danger">(extremely not optional)</span></h3>
+        <h3><i class="fa fa-fw fa-tree"></i> Hygiene <span class="text-danger">(extremely not optional)</span></h3>
         <ul>
             <li>Toiletries (Soap, shampoo, toothbrush, toothpaste, deodorant and so on</li>
             <li>Bath towel</li>
         </ul>
-        <h3>Other (optional)</h3>
+        <h3><i class="fa fa-fw fa-star"></i> Other (optional)</h3>
         <ul>
             <li>Lord of the Rings Outfit (will help you look authentic for our final night quest)</li>
             <li>Teddy Bear (For hugs. Will not be allowed to participate in some activities)</li>
@@ -237,12 +248,12 @@
                 have access to Cronulla shops.
             </li>
         </ul>
-        <h4>Seniors Only</h4>
+        <h3><i class="fa fa-fw fa-child"></i> Seniors Only</h3>
         <ul>
             <li>DVDs (only for Senior movie night)</li>
             <li>Wetsuit (for boating)</li>
         </ul>
-        <h3>Don’t Bring <span class="text-danger">(these will be taken off you)</span></h3>
+        <h3><i class="fa fa-fw fa-remove"></i> Don’t Bring <span class="text-danger">(these will be taken off you)</span></h3>
         <ul>
             <li>MP3 Players, X-Box, DS, iPads, iPods (any gaming or music playing device)</li>
             <li>Mobile phones including iPhones (don’t make us take them from you)</li>
@@ -258,14 +269,15 @@
 </div>
 
 
-<!--Payment-->
-<hr/>
-<!--hr to visually separate payment section -->
+<div class="row" id="pricing">
+    <div class="col-xs-12">
+        <h2 class="text-center">Pricing</h2>
+    </div>
+</div>
 <div class="row about_section">
     <div class="col-md-6">
-        <h2>How Much?</h2>
+        <h3><i class="fa fa-fw fa-dollar"></i> Camp Fees</h3>
 
-        <p>Camp Fees</p>
         <table class="table">
             <thead>
             <tr>
@@ -289,7 +301,7 @@
             </tbody>
         </table>
 
-        <h2 id="discounts">Discounts</h2>
+        <h3 id="discounts"><i class="fa fa-fw fa-arrow-down"></i> Discounts</h3>
 
         <p>
             Opportunities to lower your camp fees (or the fees of others!)
@@ -300,7 +312,7 @@
             <tr>
                 <th class="name">Name</th>
                 <th>Value</th>
-                <th>Available To</th>
+                <th>Eligible</th>
             </tr>
             </thead>
             <tbody>
@@ -319,17 +331,17 @@
 
     </div>
     <div class="col-md-6">
-        <h2>Payment Methods</h2>
+        <h3><i class="fa fa-fw fa-credit-card"></i> Payment Methods</h3>
 
-        <h3>PayPal (PayPal accounts and Credit Cards)</h3>
+        <h4>PayPal (PayPal accounts and Credit Cards)</h4>
         We accept online payments using PayPal. This allows you to pay securely online using your paypal account or
         credit card.
         <a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works"
            onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">
-            <img src="https://www.paypalobjects.com/webstatic/en_AU/i/buttons/btn_paywith_primary_l.png" alt="Pay with PayPal" />
+            <img src="https://www.paypalobjects.com/webstatic/en_AU/i/buttons/btn_paywith_primary_l.png" alt="Pay with PayPal"/>
         </a>
 
-        <h3>Other</h3>
+        <h4>Other</h4>
 
         <p>
             The online registration form will allow you to pay using alternative methods. These include:
@@ -343,7 +355,10 @@
             The online registration form will give you instructions on how to complete these transaction types.
         </p>
 
-        <h3>Request Assistance</h3>
+        <h4>Installments</h4>
+        <p>Details go here</p>
+
+        <h4>Request Assistance</h4>
 
         <p>
             We do not want to see money hinder you from coming; learning about Jesus and having a great time.
