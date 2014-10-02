@@ -25,6 +25,6 @@
     "backbone": "~1.1.2",
     "animate.css": "~3.2.0",
     "animate-sass": "~0.6.0",
-    "player-api": "git@github.com:vimeo/player-api.git"
+    "player-api": "https://github.com/alexreardon/player-api.git"
   }
 }

@@ -22,6 +22,8 @@
     <!--custom fonts-->
     <link rel="stylesheet" href="/public/css/main.css"/>
 
+    <!-- feature detection -->
+    <script src="/public/js/build/modernizr.js"></script>
     <!-- tracking -->
     <script src="/public/js/tracking.js"></script>
 </head>
@@ -44,7 +46,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="fullon-navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/#about">About</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/#general">General</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="/#what-to-bring">What to Bring</a></li>
+                    </ul>
+                </li>
                 <li><a href="/#contact">Contact</a></li>
                 <li><a href="/#media">Media</a></li>
                 <li><a href="/register">Register</a></li>
@@ -89,7 +98,7 @@
 <section class="l-margin-top-gutter">
 <div class="container">
 
-<div class="row">
+<div class="row" id="general">
     <div class="col-xs-12">
         <h2 class="text-center">About <i class="fa fa-info-circle"></i></h2>
     </div>
@@ -110,7 +119,7 @@
 
         <h3><i class="fa fa-fw fa-calendar"></i> When?</h3>
 
-        <p>Full On will take place on 2st-8th January 2014.</p>
+        <p>Full On will take place on 2nd-8th January 2015.</p>
 
         <h3><i class="fa fa-fw fa-pencil"></i> Registrations</h3>
 
@@ -120,7 +129,7 @@
             <p>
                 Registrations close on <strong>{{config.date_register_end}}</strong>
                 ({{data.days_to_registration_close}} days to go!)<br>
-                For more information about pricing, see <a href="/#pricing">pricing</a>.
+                For more information about cost, see <a href="/#pricing">pricing</a>.
             </p>
 
             <p>
@@ -191,90 +200,13 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-xs-12">
-        <h2 class="text-center">What to Bring</h2>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <h3><i class="fa fa-fw fa-tag"></i> General</h3>
-        <ul>
-            <li>Beach towel</li>
-            <li>Bible &amp; Pen (<strong>not optional</strong>)</li>
-            <li>Heavy duty pants for abseiling that cover your hips (hipsters will hurt &amp; you will get dirty)</li>
-            <li>Hat</li>
-            <li>Insect repellent</li>
-            <li>Long pants</li>
-            <li>Warm Top</li>
-            <li>Long sleeved shirt</li>
-            <li>Raincoat (Our activities will still continue in the rain. We don't want you getting sick)</li>
-            <li>Sandshoes (two pairs as one <strong>will get wet</strong>)</li>
-            <li>Shirts</li>
-            <li>Socks</li>
-            <li>Underwear</li>
-            <li>Suncream (30+ is best)</li>
-            <li>Sunglasses (better to have than sore eyes &amp; a headache)</li>
-            <li>Swimmers (string bikinis come off in the surf)</li>
-            <li>Thongs (sandals are better than thongs. Especially with socks! But seriously, sandals will protect your
-                feet more)
-            </li>
-            <li>Torch (you will need it for our journey to Mordor)</li>
-        </ul>
-        <h3><i class="fa fa-fw fa-moon-o"></i> Night Time</h3>
-        <ul>
-            <li>Pillowslip (Pillows and blankets are provided.  Pillowslips ensure you don’t catch the last persons head
-                lice)
-            </li>
-            <li>Sleeping bag &amp; sheets</li>
-            <li>PJ’s</li>
-        </ul>
-
-    </div>
-    <div class="col-md-6">
-        <h3><i class="fa fa-fw fa-tree"></i> Hygiene <span class="text-danger">(extremely not optional)</span></h3>
-        <ul>
-            <li>Toiletries (Soap, shampoo, toothbrush, toothpaste, deodorant and so on</li>
-            <li>Bath towel</li>
-        </ul>
-        <h3><i class="fa fa-fw fa-star"></i> Other (optional)</h3>
-        <ul>
-            <li>Lord of the Rings Outfit (will help you look authentic for our final night quest)</li>
-            <li>Teddy Bear (For hugs. Will not be allowed to participate in some activities)</li>
-            <li>Chocolate (for your leaders; I mean friends! Can be used for bribes)</li>
-            <li>Extra money for the day out. Juniors [{{config.camper_types.junior.description}}] have access to a
-                cafe/canteen; Seniors [{{config.camper_types.senior.description}}]
-                have access to Cronulla shops.
-            </li>
-        </ul>
-        <h3><i class="fa fa-fw fa-child"></i> Seniors Only</h3>
-        <ul>
-            <li>DVDs (only for Senior movie night)</li>
-            <li>Wetsuit (for boating)</li>
-        </ul>
-        <h3><i class="fa fa-fw fa-remove"></i> Don’t Bring <span class="text-danger">(these will be taken off you)</span></h3>
-        <ul>
-            <li>MP3 Players, X-Box, DS, iPads, iPods (any gaming or music playing device)</li>
-            <li>Mobile phones including iPhones (don’t make us take them from you)</li>
-            <li>Cigarettes</li>
-            <li>Confectionery (any junk food except Chocolate [see above])</li>
-            <li>Alcohol or drugs</li>
-            <li>Valuables (any jewellery &amp; large amounts of money)</li>
-            <li>Matches/ lighters</li>
-            <li>Potential weapons (pocket knives, orange guns [seriously, what are these?], etc.)</li>
-            <li>Pets</li>
-        </ul>
-    </div>
-</div>
-
 
 <div class="row" id="pricing">
     <div class="col-xs-12">
         <h2 class="text-center">Pricing</h2>
     </div>
 </div>
-<div class="row about_section">
+<div class="row">
     <div class="col-md-6">
         <h3><i class="fa fa-fw fa-dollar"></i> Camp Fees</h3>
 
@@ -336,10 +268,12 @@
         <h4>PayPal (PayPal accounts and Credit Cards)</h4>
         We accept online payments using PayPal. This allows you to pay securely online using your paypal account or
         credit card.
-        <a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works"
-           onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">
-            <img src="https://www.paypalobjects.com/webstatic/en_AU/i/buttons/btn_paywith_primary_l.png" alt="Pay with PayPal"/>
-        </a>
+        <p class="pricing-paypal">
+            <a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works"
+               onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">
+                <img src="https://www.paypalobjects.com/webstatic/en_AU/i/buttons/btn_paywith_primary_l.png" alt="Pay with PayPal"/>
+            </a>
+        </p>
 
         <h4>Other</h4>
 
@@ -356,6 +290,7 @@
         </p>
 
         <h4>Installments</h4>
+
         <p>Details go here</p>
 
         <h4>Request Assistance</h4>
@@ -369,42 +304,269 @@
 
     </div>
 </div>
-<hr/>
+<div class="row" id="what-to-bring">
+    <div class="col-xs-12">
+        <h2 class="text-center">What to Bring</h2>
+    </div>
+</div>
 
-<h2>Contact while on camp</h2>
+<div class="row">
+    <div class="col-md-6">
+        <h3><i class="fa fa-fw fa-tag"></i> General</h3>
+        <ul>
+            <li>Beach towel</li>
+            <li>Bible &amp; Pen (<strong>not optional</strong>)</li>
+            <li>Heavy duty pants for abseiling that cover your hips (hipsters will hurt &amp; you will get dirty)</li>
+            <li>Hat</li>
+            <li>Insect repellent</li>
+            <li>Long pants</li>
+            <li>Warm Top</li>
+            <li>Long sleeved shirt</li>
+            <li>Raincoat (Our activities will still continue in the rain. We don't want you getting sick)</li>
+            <li>Sandshoes (two pairs as one <strong>will get wet</strong>)</li>
+            <li>Shirts</li>
+            <li>Socks</li>
+            <li>Underwear</li>
+            <li>Suncream (30+ is best)</li>
+            <li>Sunglasses (better to have than sore eyes &amp; a headache)</li>
+            <li>Swimmers (string bikinis come off in the surf)</li>
+            <li>Thongs (sandals are better than thongs. Especially with socks! But seriously, sandals will protect your
+                feet more)
+            </li>
+            <li>Torch (you will need it for our journey to Mordor)</li>
+        </ul>
+        <h3><i class="fa fa-fw fa-moon-o"></i> Night Time</h3>
+        <ul>
+            <li>Pillowslip (Pillows and blankets are provided.  Pillowslips ensure you don’t catch the last persons head
+                lice)
+            </li>
+            <li>Sleeping bag &amp; sheets</li>
+            <li>PJ’s</li>
+        </ul>
 
-<p>See <a href="#contact">Contact</a></p>
+    </div>
+    <div class="col-md-6">
+        <h3><i class="fa fa-fw fa-tree"></i> Hygiene <span class="text-danger">(extremely not optional)</span></h3>
+        <ul>
+            <li>Toiletries (Soap, shampoo, toothbrush, toothpaste, deodorant and so on</li>
+            <li>Bath towel</li>
+        </ul>
+        <h3><i class="fa fa-fw fa-star"></i> Other (optional)</h3>
+        <ul>
+            <li>Lord of the Rings Outfit (will help you look authentic for our final night quest)</li>
+            <li>Teddy Bear (For hugs. Will not be allowed to participate in some activities)</li>
+            <li>Chocolate (for your leaders; I mean friends! Can be used for bribes)</li>
+            <li>Extra money for the day out. Juniors [{{config.camper_types.junior.description}}] have access to a
+                cafe/canteen; Seniors [{{config.camper_types.senior.description}}]
+                have access to Cronulla shops.
+            </li>
+        </ul>
+        <h3><i class="fa fa-fw fa-child"></i> Seniors Only</h3>
+        <ul>
+            <li>DVDs (only for Senior movie night)</li>
+            <li>Wetsuit (for boating)</li>
+        </ul>
+        <h3><i class="fa fa-fw fa-remove"></i> Don’t Bring
+            <span class="text-danger">(these will be taken off you)</span></h3>
+        <ul>
+            <li>MP3 Players, X-Box, DS, iPads, iPods (any gaming or music playing device)</li>
+            <li>Mobile phones including iPhones (don’t make us take them from you)</li>
+            <li>Cigarettes</li>
+            <li>Confectionery (any junk food except Chocolate [see above])</li>
+            <li>Alcohol or drugs</li>
+            <li>Valuables (any jewellery &amp; large amounts of money)</li>
+            <li>Matches/ lighters</li>
+            <li>Potential weapons (pocket knives, orange guns [seriously, what are these?], etc.)</li>
+            <li>Pets</li>
+        </ul>
+    </div>
+</div>
 
-<h2>Statement of faith</h2>
 
-<p>Interested in our theology? We are! Feel free to drop Mike Smith (see <a href="#contact">Contact</a>) a line if you
-    have any concerns or questions.</p>
+<div class="row" id="contact">
+    <div class="col-xs-12">
+        <h2 class="text-center">Contact</h2>
+    </div>
+</div>
+<div class="row contact-row-wrap">
+    <div class="col-sm-6 col-md-3">
+        <div class="contact-item">
+            <i class="fa fa-info-circle fa-fw contact-item-icon"></i>
+            <div class="contact-item-content">
+                <h3 class="contact-item-title">General Enquiries</h3>
 
-<p>
-    As Christians, we believe that all humans have rejected God and have decided to live our own way. The result
-    is that we end up in eternal exile from God, with nothing we can do about it.
+                <p>General questions or information about camp</p>
 
-    God, acting with love and grace, sent His son Jesus into the world to live the perfect life that we could
-    not, and take the punishment for our sin by his death on the cross so that we can return into a relationship
-    with Him.
 
-    This gives us two choices. We can either continue living the way we were, in rejection of God, and face the
-    consequences for our actions, or we can turn and commit our lives to Jesus so that we can return to an
-    eternal relationship with God. <a href="http://www.matthiasmedia.com.au/2wtl/2wtlonline.html">More information</a>
+                <img class="img-circle contact-item-image" src='/public/images/contact/profile-mike.jpg'/>
+                <h4>Rev. Mike Smith</h4>
 
-</p>
+                <ul class="fa-ul contact-item-details">
+                    <li><i class="fa-li fa fa-phone"></i><a href="tel:98741827">9874 1827</a></li>
+                    <li>
+                        <i class="fa-li fa fa-envelope"></i><a href="mailto:mikes@stphils.org.au?subject='Full%20On%20-%20General%20Website%20Enquiry'">mikes@stphils.org.au</a>
+                    </li>
+                    <li>
+                        <i class="fa-li fa fa-globe"></i><a href="http://en.stphils.org.au/about-us/staff-profiles/">More
+                        information</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-sm-6 col-md-3">
+
+        <div class="contact-item">
+            <i class="fa fa-cutlery fa-fw contact-item-icon"></i>
+            <div class="contact-item-content">
+                <h3 class="contact-item-title">Chocolates</h3>
+
+                <p>Questions or concerns about the chocolate data</p>
+
+                <img class="img-circle contact-item-image" src='/public/images/contact/cookie.jpg'/>
+                <h4>Stephen Cooke ('Cookie')</h4>
+
+                <ul class="fa-ul contact-item-details">
+                    <li>
+                        <i class="fa-li fa fa-envelope"></i><a href="mailto:cookie_v2@optusnet.com.au?subject='Full%20On%20-%20Chocolate%20Website%20Enquiry'">cookie_v2@optusnet.com.au</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-sm-6 col-md-3">
+
+        <div class="contact-item">
+            <i class="fa fa-comments-o fa-fw contact-item-icon"></i>
+            <div class="contact-item-content">
+                <h3 class="contact-item-title">Finance</h3>
+
+                <p>Payment and pricing related enquiries</p>
+
+                <img class="img-circle contact-item-image" src='/public/images/contact/geoff.jpg'/>
+                <h4>Geoff Pullen</h4>
+
+
+                <ul class="fa-ul contact-item-details">
+                    <li>
+                        <i class="fa-li fa fa-envelope"></i><a href="mailto:echo-froggy@hotmail.com?subject='Full%20On%20-%20Chocolate%20Website%20Enquiry'">echo-froggy@hotmail.com </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="contact-item">
+            <i class="fa fa-cogs fa-fw contact-item-icon"></i>
+            <div class="contact-item-content">
+                <h3 class="contact-item-title">Technical Support</h3>
+
+                <p>Issues with the website content or functionality</p>
+
+                <img class="img-circle contact-item-image" src='/public/images/contact/alex.jpg'/>
+                <h4>Alex Reardon</h4>
+
+
+                <ul class="fa-ul contact-item-details">
+                    <li>
+                        <i class="fa-li fa fa-envelope"></i><a href="mailto:alexreardon@gmail.copm?subject='Full%20On%20-%20Technical%20Website%20Enquiry'">alexreardon@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h2 class="text-center">On Camp Contact</h2>
+
+        <p>
+            There is a public phone at camp. Incoming calls should only be made in the case of an
+            <span class="text-danger">emergency</span>.
+        </p>
+
+        <ul class="fa-ul">
+            <li><i class="fa-li fa fa-phone"></i><a href="tel:85253100">8525 3100</a></li>
+            <li>
+                <i class="fa-li fa fa-map-marker"></i>
+                <a href="http://www.youthworks.net/conferencecentres/port_hacking">
+                    St Philips Eastwood </br>
+                    c/- Port Hacking Conference Centres </br>
+                    PO Box 705 </br>
+                    SUTHERLAND NSW 1499
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2 class="text-center">Statement of faith</h2>
+
+        <p>Interested in our theology? We are! Feel free to drop Mike Smith (see <a href="#contact">Contact</a>) a line
+            if you
+            have any concerns or questions.</p>
+
+        <p>
+            As Christians, we believe that all humans have rejected God and have decided to live our own way. The result
+            is that we end up in eternal exile from God, with nothing we can do about it.
+
+            God, acting with love and grace, sent His son Jesus into the world to live the perfect life that we could
+            not, and take the punishment for our sin by his death on the cross so that we can return into a relationship
+            with Him.
+
+            This gives us two choices. We can either continue living the way we were, in rejection of God, and face the
+            consequences for our actions, or we can turn and commit our lives to Jesus so that we can return to an
+            eternal relationship with God. <a href="http://www.matthiasmedia.com.au/2wtl/2wtlonline.html">More
+            information</a>
+
+        </p>
+    </div>
+</div>
 
 </div>
 </section>
 
-<!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#video-modal">
-    Launch demo modal
+<!-- Upgrade modal -->
+<button class="btn btn-primary" data-toggle="modal" data-keyboard="false" data-backdrop="static" data-target=".upgrade-modal">
+    Large modal
 </button>
 
+<div class="modal fade upgrade-modal" tabindex="-1" role="dialog" aria-labelledby="upgradeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="upgradeModalLabel">Browser Not Supported</h4>
+            </div>
+            <div class="modal-body">
+                Your browser cannot handle this <strong>amazing</strong> site. It is recommended that you use a
+                newer browser.
+
+                <a class="btn btn-primary text-uppercase btn-lg btn-block upgrade-modal-button" href="http://browsehappy.com/">Get
+                    a newer browser</a>
+
+                <p>
+                    If you cannot update your browser and would like to find out more information about full on please
+                    contact <a href="mailto:mikes@stphils.org.au?subject='Full On: Outdated Browser'">Mike Smith</a>
+                </p>
+
+            </div>
+            <div class="modal-footer">
+                - The Full On Team
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="/public/js/build/lib.js"></script>
 <script src="/public/js/build/app.js"></script>
-
 </body>
 </html>

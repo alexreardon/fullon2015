@@ -11,7 +11,7 @@ exports.routes = function(app) {
         // coming soon
         return res.render('index', {
             config: config.application,
-            data: date.get_page_data(),
+            data: date.get_page_data()
         });
     });
 };

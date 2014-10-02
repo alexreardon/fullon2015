@@ -10,6 +10,41 @@ _.extend(fullon.vent, Backbone.Events);
 // modules
 //fullon.validation = require('../../util/validation');
 
+fullon.views.feature_detect = Backbone.View.extend({
+    initialize: function() {
+        this.$modal = $('.upgrade-modal');
+
+    },
+    isBrowserSupported: function() {
+
+        // media queries
+        if (!Modernizr.mq('only all')) {
+            return false;
+        }
+
+        var minimum_features = [
+            'backgroundsize',
+            'opacity',
+            'cssanimations',
+            'generatedcontent',
+            'cssgradients',
+            'csstransitions',
+            'csstransforms'
+        ];
+
+        return _.every(minimum_features, function(feature) {
+            return Modernizr[feature] === true;
+        });
+    },
+    showUpgradeBrowserModal: function() {
+        // modal is uncloseable!
+        this.$modal.modal({
+            keyboard: false,
+            backdrop: 'static'
+        });
+    }
+});
+
 fullon.views.common = Backbone.View.extend({
 
     initialize: function() {
@@ -20,14 +55,13 @@ fullon.views.common = Backbone.View.extend({
 
         this.resize();
 
-        $(window).on('resize', function () {
+        $(window).on('resize', function() {
             this.throttled_resize();
         }.bind(this));
 
-
     },
 
-    resize: function () {
+    resize: function() {
         // crappy iOS doesn't like 100vh; Need to set the height manually
         console.log('window resize - common');
 
@@ -36,12 +70,20 @@ fullon.views.common = Backbone.View.extend({
 
     },
 
-    get_min_height: function () {
+    get_min_height: function() {
         return ($(window).height() - this.$nav.height());
     }
 });
 
 (function() {
+    var feature_detector = new fullon.views.feature_detect();
+
+    if (!feature_detector.isBrowserSupported()) {
+        console.warn('browser not supported');
+        return feature_detector.showUpgradeBrowserModal();
+    }
+
+    console.log('browser supported, lets do this!');
     var common = new fullon.views.common();
 })();
 

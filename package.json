@@ -63,6 +63,7 @@
   },
   "devDependencies": {
     "expect.js": "~0.3.1",
+    "grunt-modernizr": "^0.5.2",
     "grunt-sass": "^0.14.0",
     "mocha": "~1.20.1",
     "node-bourbon": "^1.2.3",

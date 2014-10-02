@@ -17,6 +17,7 @@ module.exports = function(grunt) {
 
         client_js_app_files = [
             'public/js/common.js',
+            'util/validation.js',
             'public/js/pages/index.js'
         ],
 
@@ -28,6 +29,12 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+
+        paths: {
+            bower: 'bower_components',
+            modernizr: '<%= paths.bower %>/modernizr/modernizr.js',
+            buildJS: 'public/js/build'
+        },
 
         jshint: {
             node: {
@@ -150,6 +157,72 @@ module.exports = function(grunt) {
                     }
                 }
             }
+        },
+
+        modernizr: {
+
+            dist: {
+                // [REQUIRED] Path to the build you're using for development.
+                'devFile': '<%= paths.modernizr %>',
+
+                // [REQUIRED] Path to save out the built file.
+                'outputFile': '<%= paths.buildJS %>/modernizr.js',
+
+                // Based on default settings on http://modernizr.com/download/
+                'extra': {
+                    'shiv': true,
+                    'printshiv': true,
+                    'load': true,
+                    'mq': true,
+                    'cssclasses': true
+                },
+
+                // Based on default settings on http://modernizr.com/download/
+                'extensibility': {
+                    'addtest': false,
+                    'prefixed': false,
+                    'teststyles': true,
+                    'testprops': true,
+                    'testallprops': true,
+                    'hasevents': false,
+                    'prefixes': true,
+                    'domprefixes': true
+                },
+
+                // By default, source is uglified before saving
+                'uglify': true,
+
+                // Define any tests you want to implicitly include.
+                'tests': [
+                    'backgroundsize',
+                    'opacity',
+                    'rgba',
+                    'cssanimations',
+                    'generatedcontent',
+                    'cssgradients',
+                    'csstransitions',
+                    'csstransforms',
+                    'video'
+                ],
+
+                // By default, this task will crawl your project for references to Modernizr tests.
+                // Set to false to disable.
+                'parseFiles': true,
+
+                // When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
+                // You can override this by defining a 'files' array below.
+                'files': {
+                    'src': client_js_app_files
+                },
+
+                // When parseFiles = true, matchCommunityTests = true will attempt to
+                // match user-contributed tests.
+                'matchCommunityTests': false,
+
+                // Have custom Modernizr tests? Add paths to their location here.
+                'customTests': []
+            }
+
         }
     });
 
@@ -164,15 +237,16 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-modernizr');
 
     //Development
 //	grunt.registerTask('dev', ['less:dev', 'browserify', 'concat']);
-    grunt.registerTask('dev', ['sass', 'concat', 'run']);
+    grunt.registerTask('dev', ['sass', 'concat', 'modernizr', 'run']);
 
     grunt.registerTask('run', ['concurrent:target']);
 
     //Release
-    grunt.registerTask('default', ['jshint', 'sass', 'browserify', 'concat', 'uglify:prod']);
+    grunt.registerTask('default', ['jshint', 'sass', 'concat', 'modernizr', 'uglify:prod']);
 
     //Heroku
     // grunt.registerTask('heroku:production', 'default');
