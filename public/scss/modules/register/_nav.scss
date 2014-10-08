@@ -1,0 +1,22 @@
+.register-nav {
+    margin-top: $navbar-height;
+
+    li {
+
+        &.done a {
+            color: $brand-success;
+        }
+        &.pending a {
+            color: $gray-light;
+        }
+        &.partially_completed a {
+            color: $brand-warning;
+        }
+    }
+
+}
+
+// footer navigation
+.navigation {
+    margin-top: $grid-gutter-width;
+}

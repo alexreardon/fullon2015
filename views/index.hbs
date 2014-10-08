@@ -1,69 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <title>Full On 2015</title>
-    <meta name="description" content="St Philips Eastwood Anglican Church: Annual Youth Camp - Full On"/>
-
-    <!-- google verification -->
-    <meta name="google-site-verification" content="wKFgBnX8Q1GweezPYyI1NMn6wN4_cA57lWOfxcrI2J0"/>
-
-    <!-- mobile meta tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="HandheldFriendly" content="True"/>
-    <meta name="MobileOptimized" content="320"/>
-
-    <!-- facebook share image -->
-    <link rel="image_src" href="/public/images/fb_share.jpg"/>
-
-    <!--<link rel="shortcut icon" href="/public/images/favicon.ico"/>-->
-
-    <!--custom fonts-->
-    <link rel="stylesheet" href="/public/css/main.css"/>
-
-    <!-- feature detection -->
-    <script src="/public/js/build/modernizr.js"></script>
-    <!-- tracking -->
-    <script src="/public/js/tracking.js"></script>
-</head>
-<body>
-
-<nav class="fo-navbar navbar navbar-fixed-top navbar-inverse" role="navigation">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#fullon-navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand fo-navbar-fo-logo" href="/#">Full On</a>
-            <a class="navbar-brand fo-navbar-stphils-logo" href="http://stphils.org.au/">St Phils</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="fullon-navbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="/#general">General</a></li>
-                        <li><a href="/#pricing">Pricing</a></li>
-                        <li><a href="/#what-to-bring">What to Bring</a></li>
-                    </ul>
-                </li>
-                <li><a href="/#contact">Contact</a></li>
-                <li><a href="/#media">Media</a></li>
-                <li><a href="/register">Register</a></li>
-
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-</nav>
+{{>header}}
 
 <section class="landing l-full-screen">
 
@@ -129,7 +64,7 @@
             <p>
                 Registrations close on <strong>{{config.date_register_end}}</strong>
                 ({{data.days_to_registration_close}} days to go!)<br>
-                For more information about cost, see <a href="/#pricing">pricing</a>.
+                For more information about cost, discounts and payment methods, see <a href="/#pricing">pricing</a>.
             </p>
 
             <p>
@@ -162,14 +97,14 @@
             <li>Canoeing (beware of the Turtle..) &amp; Sailing</li>
             <li>Beach Day Out (Jnr)</li>
             <li>Movies &amp; Cafe (Snr)</li>
-            <li><strong>Plus much, much more!</strong> (see <a href="#media">Visual Media</a> for a taste!)</li>
+            <li><strong>Plus much, much more!</strong> (see <a href="#media">Media</a> for a taste!)</li>
         </ul>
 
 
     </div>
     <div class="col-md-6">
         <h3><i class="fa fa-fw fa-map-marker"></i> Where?</h3>
-        <img id="img_campsite" class="img-responsive l-img-border" src="/public/images/campsite.jpg" alt="Campsite">
+        <img id="img_campsite" class="img-responsive l-img-border l-margin-bottom-gutter-half" src="/public/images/campsite.jpg" alt="Campsite">
 
 
         <!--<p class="text-center">Our beautiful waterside campsite</p>-->
@@ -221,7 +156,7 @@
 
             {{#each config.camper_types}}
                 <tr>
-                    <td>{{@key}}
+                    <td class="text-capitalize">{{@key}}
                         <p>
                             <small>{{description}}</small>
                         </p>
@@ -255,7 +190,7 @@
                         <p>{{description}}</p>
                     </td>
                     <td>${{amount}}</td>
-                    <td>{{print_array available_to}}</td>
+                    <td class="text-capitalize">{{print_array available_to}}</td>
                 </tr>
             {{/each}}
             </tbody>
@@ -291,7 +226,7 @@
 
         <h4>Installments</h4>
 
-        <p>Details go here</p>
+        <p>For the first time this year we are offering the ability to pay by installments.</p>
 
         <h4>Request Assistance</h4>
 
@@ -361,7 +296,7 @@
                 have access to Cronulla shops.
             </li>
         </ul>
-        <h3><i class="fa fa-fw fa-child"></i> Seniors Only</h3>
+        <h3><i class="fa fa-fw {{config.camper_types.senior.icon}}"></i> Seniors Only</h3>
         <ul>
             <li>DVDs (only for Senior movie night)</li>
             <li>Wetsuit (for boating)</li>
@@ -389,9 +324,10 @@
     </div>
 </div>
 <div class="row contact-row-wrap">
-    <div class="col-sm-6 col-md-3">
+    <div class="col-md-6 col-lg-3">
         <div class="contact-item">
             <i class="fa fa-info-circle fa-fw contact-item-icon"></i>
+
             <div class="contact-item-content">
                 <h3 class="contact-item-title">General Enquiries</h3>
 
@@ -415,10 +351,11 @@
         </div>
 
     </div>
-    <div class="col-sm-6 col-md-3">
+    <div class="col-md-6 col-lg-3">
 
         <div class="contact-item">
             <i class="fa fa-cutlery fa-fw contact-item-icon"></i>
+
             <div class="contact-item-content">
                 <h3 class="contact-item-title">Chocolates</h3>
 
@@ -437,10 +374,11 @@
         </div>
 
     </div>
-    <div class="col-sm-6 col-md-3">
+    <div class="col-md-6 col-lg-3">
 
         <div class="contact-item">
             <i class="fa fa-comments-o fa-fw contact-item-icon"></i>
+
             <div class="contact-item-content">
                 <h3 class="contact-item-title">Finance</h3>
 
@@ -460,9 +398,10 @@
         </div>
 
     </div>
-    <div class="col-sm-6 col-md-3">
+    <div class="col-md-6 col-lg-3">
         <div class="contact-item">
             <i class="fa fa-cogs fa-fw contact-item-icon"></i>
+
             <div class="contact-item-content">
                 <h3 class="contact-item-title">Technical Support</h3>
 
@@ -507,7 +446,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" id="statement-of-faith">
     <div class="col-xs-12">
         <h2 class="text-center">Statement of faith</h2>
 
@@ -532,41 +471,75 @@
     </div>
 </div>
 
-</div>
-</section>
+<div class="row" id="media">
+    <div class="co-xs-12">
+        <h2 class="text-center">Media</h2>
+    </div>
+    <div class="col-md-6">
+        <h3>2014 - Camp Trailer</h3>
 
-<!-- Upgrade modal -->
-<button class="btn btn-primary" data-toggle="modal" data-keyboard="false" data-backdrop="static" data-target=".upgrade-modal">
-    Large modal
-</button>
+        <div class="embed-responsive embed-responsive-16by9">
 
-<div class="modal fade upgrade-modal" tabindex="-1" role="dialog" aria-labelledby="upgradeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="upgradeModalLabel">Browser Not Supported</h4>
-            </div>
-            <div class="modal-body">
-                Your browser cannot handle this <strong>amazing</strong> site. It is recommended that you use a
-                newer browser.
-
-                <a class="btn btn-primary text-uppercase btn-lg btn-block upgrade-modal-button" href="http://browsehappy.com/">Get
-                    a newer browser</a>
-
-                <p>
-                    If you cannot update your browser and would like to find out more information about full on please
-                    contact <a href="mailto:mikes@stphils.org.au?subject='Full On: Outdated Browser'">Mike Smith</a>
-                </p>
-
-            </div>
-            <div class="modal-footer">
-                - The Full On Team
-            </div>
+            <iframe class="embed-responsive-item" src="//player.vimeo.com/video/77024814?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933"
+                    width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen
+                    allowfullscreen></iframe>
         </div>
     </div>
+
+
+    <div class="col-md-6">
+        <h3>2013 - Camp Video</h3>
+
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/lEfMKm_SiGc" width="420" height="236" frameborder="0"
+                    webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h3>2013 - Pun-tacular Countdown</h3>
+
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/videoseries?list=PLuq6QmtMUvyYTudaKENWD8jPaqK2HRHiY"
+                    width="420"
+                    height="236" frameborder="0"
+                    webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h3>2013 - Promo</h3>
+
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="//player.vimeo.com/video/50415712?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933"
+                    width="420" height="236" frameborder="0" webkitallowfullscreen mozallowfullscreen
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h3>2012 - Photos</h3>
+
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/-BIMqGW4-uA" width="420" height="236" frameborder="0"
+                    webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+    </div>
+
+
 </div>
 
-<script src="/public/js/build/lib.js"></script>
-<script src="/public/js/build/app.js"></script>
-</body>
-</html>
+</div>
+
+</section>
+
+
+
+
+
+
+
+{{>footer_scripts}}
+<script>
+    $(function() {
+        var index = new fullon.views.index();
+    });
+</script>
+{{>footer}}

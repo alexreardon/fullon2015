@@ -72,7 +72,6 @@ fullon.views.index = Backbone.View.extend({
         // hide navbar
         this.$nav_bar[method]('is-trailer-playing');
 
-
         if (show) {
             this.$trailer_video_launch.attr('disabled', 'disabled');
             this.$f_trailer_video_iframe.api('play');
@@ -82,7 +81,3 @@ fullon.views.index = Backbone.View.extend({
         }
     }
 });
-
-(function() {
-    var index = new fullon.views.index();
-})();

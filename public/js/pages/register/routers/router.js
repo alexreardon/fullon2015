@@ -3,176 +3,176 @@
 
 fullon.routers.register = Backbone.Router.extend({
 
-	initialize: function () {
-		this.common = new fullon.views.register.common();
-		this.allegiance = new fullon.views.register.allegiance();
-		this.costs = new fullon.views.register.costs();
-		this.basic = new fullon.views.register.basic();
-		this.payment = new fullon.views.register.payment();
+    initialize: function() {
+        this.common = new fullon.views.register.common();
+        this.allegiance = new fullon.views.register.allegiance();
+        this.costs = new fullon.views.register.costs();
+        this.basic = new fullon.views.register.basic();
+        this.payment = new fullon.views.register.payment();
 
-		this.$form = $('form');
-		this.$sections = $('section');
-		this.$all_inputs = $('input, textarea, select');
+        this.$form = $('form');
+        this.$sections = $('section');
+        this.$all_inputs = $('input, textarea, select');
 
-		// nav buttons
-		this.$nav_buttons = $('#register_nav .nav li');
-		this.$back_buttons = $('.navigation .btn[data-action=back]');
-		this.$next_buttons = $('.navigation .btn[data-action=next]');
+        // nav buttons
+        this.$nav_buttons = $('.register-nav .nav li');
+        this.$back_buttons = $('.navigation .btn[data-action=back]');
+        this.$next_buttons = $('.navigation .btn[data-action=next]');
 
-		// warn before refresh
-		var bypass_refresh_check = false;
-		window.onbeforeunload = function () {
-			if (!bypass_refresh_check) {
-				bypass_refresh_check = false;
-				return 'Data will be lost if you leave/refresh the page';
-			}
+        // warn before refresh
+        var bypass_refresh_check = false;
+        window.onbeforeunload = function() {
+            if (!bypass_refresh_check) {
+                bypass_refresh_check = false;
+                return 'Data will be lost if you leave/refresh the page';
+            }
 
-		};
+        };
 
-		// Attached to events
+        // Attached to events
 
-		var self = this;
+        var self = this;
 
-		// block manual form submission
-		this.$form.on('submit', function (event) {
-			console.log('attempting to submit form');
+        // block manual form submission
+        this.$form.on('submit', function(event) {
+            console.log('attempting to submit form');
 
-			// stop listening for navigation events
-			self.stopListening();
+            // stop listening for navigation events
+            self.stopListening();
 
-			// enabled all disabled fields for submission (ie was not submitting items that where disabled)
-			self.$all_inputs.attr('disabled', false);
+            // enabled all disabled fields for submission (ie was not submitting items that where disabled)
+            self.$all_inputs.attr('disabled', false);
 
-			// visually disable all navigation buttons
-			self.$back_buttons.addClass('disabled');
-			self.$next_buttons.addClass('disabled');
+            // visually disable all navigation buttons
+            self.$back_buttons.addClass('disabled');
+            self.$next_buttons.addClass('disabled');
 
-			// disable top nav links
-			self.$nav_buttons.find('a').off('click');
+            // disable top nav links
+            self.$nav_buttons.find('a').off('click');
 
-			bypass_refresh_check = true;
-		});
+            bypass_refresh_check = true;
+        });
 
-		this.$back_buttons.on('click', function (event) {
-			event.preventDefault();
-			event.stopPropagation();
+        this.$back_buttons.on('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
 
-			var $section = $(this).closest('section');
-			self.on_navigate_previous($section);
-		});
+            var $section = $(this).closest('section');
+            self.on_navigate_previous($section);
+        });
 
-		this.$nav_buttons.find('a').on('click', function (event) {
-			event.preventDefault();
-			event.stopPropagation();
+        this.$nav_buttons.find('a').on('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
 
-			self.on_nav_button_click($(this).closest('li'));
-		});
+            self.on_nav_button_click($(this).closest('li'));
+        });
 
-		// listen to events
-		this.listenTo(fullon.vent, 'navigate:next', this.on_navigate_next);
-		this.listenTo(fullon.vent, 'camper_type:change', this.on_camper_type_change);
+        // listen to events
+        this.listenTo(fullon.vent, 'navigate:next', this.on_navigate_next);
+        this.listenTo(fullon.vent, 'camper_type:change', this.on_camper_type_change);
 
-	},
+    },
 
-	navigate_ui: function ($current, $next, forward) {
+    navigate_ui: function($current, $next, forward) {
 
-		// remove active class
-		var $current_tab = this.$nav_buttons.find('a[data-section=' + $current.attr('id') + ']').closest('li');
-		$current_tab.removeClass('active');
+        // remove active class
+        var $current_tab = this.$nav_buttons.find('a[data-section=' + $current.attr('id') + ']').closest('li');
+        $current_tab.removeClass('active');
 
-		if (forward) {
-			$current_tab.removeClass('partially_completed').addClass('done');
-		} else if (!$current_tab.hasClass('done')) {
-			$current_tab.addClass('partially_completed');
-		}
+        if (forward) {
+            $current_tab.removeClass('partially_completed').addClass('done');
+        } else if (!$current_tab.hasClass('done')) {
+            $current_tab.addClass('partially_completed');
+        }
 
-		var $next_tab = this.$nav_buttons.find('a[data-section=' + $next.attr('id') + ']').closest('li');
-		$next_tab.removeClass('pending').addClass('active');
+        var $next_tab = this.$nav_buttons.find('a[data-section=' + $next.attr('id') + ']').closest('li');
+        $next_tab.removeClass('pending').addClass('active');
 
-		$current.hide();
-		$next.show();
+        $current.hide();
+        $next.show();
 
-		//snap to top of page
-		$(window).scrollTop(0);
-	},
+        //snap to top of page
+        $(window).scrollTop(0);
+    },
 
-	on_navigate_previous: function ($section) {
+    on_navigate_previous: function($section) {
 
-		var $prev = $section.prev();
-		if ($prev.length) {
-			this.navigate_ui($section, $prev, false);
-		}
-	},
+        var $prev = $section.prev();
+        if ($prev.length) {
+            this.navigate_ui($section, $prev, false);
+        }
+    },
 
-	on_navigate_next: function ($section) {
-		// at this stage we can we sure that we can navigate to the next section
+    on_navigate_next: function($section) {
+        // at this stage we can we sure that we can navigate to the next section
 
-		var $next = $section.next();
-		if ($next.length) {
-			return this.navigate_ui($section, $next, true);
-		}
+        var $next = $section.next();
+        if ($next.length) {
+            return this.navigate_ui($section, $next, true);
+        }
 
-		// on the last section - we can submit
-		this.$form.submit();
+        // on the last section - we can submit
+        this.$form.submit();
 
-	},
+    },
 
-	on_nav_button_click: function ($li) {
-		if ($li.hasClass('pending')) {
-			return;
-		}
+    on_nav_button_click: function($li) {
+        if ($li.hasClass('pending')) {
+            return;
+        }
 
-		// get current section
-		var $current_section = this.$sections.filter(':visible');
+        // get current section
+        var $current_section = this.$sections.filter(':visible');
 
-		// get target section
-		var target_id = $li.find('a').attr('data-section');
+        // get target section
+        var target_id = $li.find('a').attr('data-section');
 
-		// clicked the link of the current section
-		// don't need to do anything
-		if (target_id === $current_section.attr('id')) {
-			return;
-		}
+        // clicked the link of the current section
+        // don't need to do anything
+        if (target_id === $current_section.attr('id')) {
+            return;
+        }
 
-		var $target_section = this.$sections.filter(function () {
-			return ($(this).attr('id') === target_id);
-		});
+        var $target_section = this.$sections.filter(function() {
+            return ($(this).attr('id') === target_id);
+        });
 
-		// get direction of navigation
-		var forward = (this.$sections.index($current_section) < this.$sections.index($target_section));
+        // get direction of navigation
+        var forward = (this.$sections.index($current_section) < this.$sections.index($target_section));
 
-		// if going forward - need to validate current page
-		fullon.vent.trigger('input:validate_section', $current_section, function (success) {
-			if (!forward) {
-				return this.navigate_ui($current_section, $target_section, false);
-			}
+        // if going forward - need to validate current page
+        fullon.vent.trigger('input:validate_section', $current_section, function(success) {
+            if (!forward) {
+                return this.navigate_ui($current_section, $target_section, false);
+            }
 
-			if (success) {
-				$li.removeClass('partially_complete');
-				this.navigate_ui($current_section, $target_section, true);
-			} else {
-				window.alert('cannot continue forward until this section is valid');
-			}
-		}.bind(this));
+            if (success) {
+                $li.removeClass('partially_complete');
+                this.navigate_ui($current_section, $target_section, true);
+            } else {
+                window.alert('cannot continue forward until this section is valid');
+            }
+        }.bind(this));
 
-	},
+    },
 
-	on_camper_type_change: function () {
-		// invalidate all nav icons (they can't be valid any more! the questions have changed!)
-		// could do a warning here
+    on_camper_type_change: function() {
+        // invalidate all nav icons (they can't be valid any more! the questions have changed!)
+        // could do a warning here
 
-		// this will now force the user to use the next buttons
+        // this will now force the user to use the next buttons
 
-		var first = true;
-		this.$nav_buttons.each(function () {
-			if (first) {
-				first = false;
-				return;
-			}
+        var first = true;
+        this.$nav_buttons.each(function() {
+            if (first) {
+                first = false;
+                return;
+            }
 
-			$(this).removeClass('partially_completed done').addClass('pending');
+            $(this).removeClass('partially_completed done').addClass('pending');
 
-		});
-	}
+        });
+    }
 
 });

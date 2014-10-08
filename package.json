@@ -24,6 +24,7 @@
   "gitHead": "f3802a6ae66117735137d3e57a24d21285472786",
   "readmeFilename": "README.md",
   "dependencies": {
+    "basic-auth": "^1.0.0",
     "body-parser": "^1.4.3",
     "chance": "^0.5.6",
     "compression": "^1.0.8",

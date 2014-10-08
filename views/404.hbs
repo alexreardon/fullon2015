@@ -1,20 +1,23 @@
 {{>header}}
 
-<section id="error_page" class="light">
-	<div class="container">
+<div class="container l-margin-top-header-nav">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="text-center">Page not found</h2>
 
-		<h1>Page not found</h1>
+<pre>Page requested: <code>'{{url}}'</code>
+Page not found.
+What should we do?...
+Looks like we have to find a new adventure Tom.
+Who is Tom?
+I have said too much.
+System.exit();
+</pre>
+        </div>
+    </div>
 
-		<h2>{{url}}</h2>
 
-		<p>
-			"Always remember, Frodo, the Ring is trying to get back to its master. It wants to be found." - <strong>Gandalf</strong>
-		</p>
+</div>
 
-		<p>
-			Unfortunately this page has not master.
-		</p>
-	</div>
-</section>
-
+{{>footer_scripts}}
 {{>footer}}

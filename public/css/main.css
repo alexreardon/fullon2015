@@ -6211,6 +6211,18 @@ button.close {
 .l-margin-top-gutter {
   margin-top: 30px; }
 
+.l-margin-bottom-gutter {
+  margin-bottom: 30px; }
+
+.l-margin-bottom-gutter-half {
+  margin-bottom: 15px; }
+
+.l-margin-top-header-nav {
+  margin-top: 50px; }
+
+.l-margin-top-base {
+  margin-top: 12px; }
+
 .fo-navbar {
   opacity: 1;
   -webkit-transition-property: opacity;
@@ -6375,6 +6387,7 @@ button.close {
   border-radius: 20px;
   margin-top: 30px;
   min-height: 370px;
+  overflow: hidden;
   position: relative;
   text-align: center; }
   @media (max-width: 767px) {
@@ -6429,3 +6442,26 @@ button.close {
 
 .pricing-paypal {
   margin-top: 10px; }
+
+.register-nav {
+  margin-top: 50px; }
+  .register-nav li.done a {
+    color: #5cb85c; }
+  .register-nav li.pending a {
+    color: #777777; }
+  .register-nav li.partially_completed a {
+    color: #f0ad4e; }
+
+.navigation {
+  margin-top: 30px; }
+
+.register-form section {
+  display: none;
+  margin-bottom: 30px; }
+.register-form .is-input-required:before {
+  content: '*';
+  padding-right: 2px;
+  color: #FF0018; }
+
+#allegiance {
+  display: block; }

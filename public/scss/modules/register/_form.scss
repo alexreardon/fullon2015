@@ -1,0 +1,16 @@
+.register-form {
+
+    // sections are hidden by default
+    section {
+        display: none;
+        margin-bottom: $grid-gutter-width;
+    }
+
+    .is-input-required {
+        &:before {
+            content: '*';
+            padding-right: 2px;
+            color: $brand-danger;
+        }
+    }
+}

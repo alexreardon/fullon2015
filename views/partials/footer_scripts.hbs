@@ -1,0 +1,8 @@
+<script src="/public/js/build/lib.js"></script>
+<script src="/public/js/build/app.js"></script>
+<!-- bootstrap data -->
+{{#if config}}
+    <script>
+        fullon.config = JSON.parse('{{{print_json config}}}');
+    </script>
+{{/if}}

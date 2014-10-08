@@ -1,35 +1,41 @@
-<footer class="dark">
-	<div class="container">
-		<img src="/public/images/logo.png" class="img-responsive" alt="logo" />
-		{{>social}}
-	</div>
-</footer>
+<div class="modal fade upgrade-modal" tabindex="-1" role="dialog" aria-labelledby="upgradeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="upgradeModalLabel">Browser Not Supported</h4>
+            </div>
+            <div class="modal-body">
+                Your browser cannot handle this <strong>amazing</strong> site. It is recommended that you use a
+                newer browser.
 
-<!-- CDN resources -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/public/js/lib/jquery.min.js"><\/script>')</script>
+                <a class="btn btn-primary text-uppercase btn-lg btn-block upgrade-modal-button" href="http://browsehappy.com/">Get
+                    a newer browser</a>
 
-<!-- library files -->
-<script src="/public/js/build/lib.js"></script>
+                <p>
+                    If you cannot update your browser and would like to find out more information about full on please
+                    contact <a href="mailto:mikes@stphils.org.au?subject='Full On: Outdated Browser'">Mike Smith</a>
+                </p>
 
-<!-- common files -->
-<script src="/public/js/build/common.build.js"></script>
+            </div>
+            <div class="modal-footer">
+                - The Full On Team
+            </div>
+        </div>
+    </div>
+</div>
 
-<!-- bootstrap data -->
-{{#if config}}
-	<script>
-		fullon.config = JSON.parse('{{{print_json config}}}');
-	</script>
-{{/if}}
 
-<!-- custom files -->
-{{#each scripts}}
-	<script src="{{this}}"></script>
-{{/each}}
 
-<!--tracking and social media-->
-<div id="fb-root"></div>
-<script src="/public/js/tracking.js"></script>
+<section class="l-margin-top-gutter l-margin-bottom-gutter">
+    <div class="container">
+        <div class="col-xs-12 text-center">
+                <!--tracking and social media-->
+                <div id="fb-root"></div>
+                <div class="fb-like" data-href="http://fullon.stphils.org.au/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+        </div>
+    </div>
+</section>
+
 
 </body>
 </html>

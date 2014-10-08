@@ -50,6 +50,15 @@
 				</p>
 			{{/if_equal}}
 
+            {{! installment }}
+            {{#if_equal registration.data.payment_method config.payment_types.installment.name}}
+                <p>
+                    <strong>Outstanding amount</strong> ${{../registration.data.payment_total}}
+                </p>
+
+                <h3>TODO: installment details</h3>
+            {{/if_equal}}
+
 
 			{{! assistance}}
 			{{#if_equal registration.data.payment_method config.payment_types.request_assistance.name}}

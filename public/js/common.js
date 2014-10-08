@@ -1,11 +1,12 @@
 // namespaces
-window.fullon = {};
-fullon.views = {};
-fullon.state = {};
-
-// events
-fullon.vent = {};
-_.extend(fullon.vent, Backbone.Events);
+window.fullon = {
+    views: {
+        register: {}
+    },
+    state: {},
+    routers: {},
+    vent: _.extend({}, Backbone.Events)
+};
 
 // modules
 //fullon.validation = require('../../util/validation');

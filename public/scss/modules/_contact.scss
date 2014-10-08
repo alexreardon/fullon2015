@@ -6,6 +6,7 @@ $content-item-height: 370px;
     border-radius: $border-radius-large;
     margin-top: $grid-gutter-width;
     min-height: $content-item-height;
+    overflow: hidden;
     position: relative;
     text-align: center;
 

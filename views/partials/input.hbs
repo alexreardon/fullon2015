@@ -9,7 +9,7 @@
 	>
 
 	{{#if text}}
-		<label class="control-label{{#if validation.required}} required{{/if}}">{{text}}</label>
+		<label class="control-label{{#if validation.required}} is-input-required{{/if}}">{{text}}</label>
 	{{/if}}
 
 	<div class="validation_message hide">{{{get_validation_messages validation}}}</div>

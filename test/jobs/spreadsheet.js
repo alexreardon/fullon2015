@@ -6,7 +6,7 @@ var expect = require('expect.js'),
 	database = require('../../util/db'),
 	person = require('../../models/person');
 
-describe('Job - Get Spreadsheet Data', function () {
+describe.only('Job - Get Spreadsheet Data', function () {
 
 	describe('get_person', function () {
 

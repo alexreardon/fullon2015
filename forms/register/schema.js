@@ -7,7 +7,7 @@ var data = {
 	allegiance: {
 		name: 'allegiance',
 		text: 'Allegiance',
-		short_title: 'type',
+		short_title: 'types',
 		fields: {
 			camper_type: {
 				name: 'camper_type',

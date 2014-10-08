@@ -14,3 +14,18 @@
 .l-margin-top-gutter {
     margin-top: $grid-gutter-width;
 }
+
+.l-margin-bottom-gutter {
+    margin-bottom: $grid-gutter-width;
+}
+.l-margin-bottom-gutter-half {
+    margin-bottom: $grid-gutter-width / 2;
+}
+
+.l-margin-top-header-nav {
+    margin-top: $navbar-height;
+}
+
+.l-margin-top-base {
+    margin-top: $padding-base-horizontal;
+}

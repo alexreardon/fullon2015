@@ -24,18 +24,24 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
 
 // Register helpers
-_.each(helpers, function (val, key) {
+_.each(helpers, function(val, key) {
     hbs.registerHelper(key, val);
 });
 
 // Middleware - Express
 app.use(logger('dev'));
 app.use(compression());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 //app.use(bodyParser.json());
 //app.use(methodOverride());
 //app.use(cookieParser(config.cookie_secret));
-app.use(session({secret: config.session_secret}));
+app.use(session({
+    secret: config.session_secret,
+    resave: true,
+    saveUninitialized: true
+}));
 
 // Static file serving
 app.use('/public', express.static(path.join(__dirname, '/public')));
@@ -44,35 +50,21 @@ app.use('/public', express.static(path.join(__dirname, '/public')));
 app.locals.bootstrap = JSON.stringify(locals.bootstrap);
 
 // Load in routes
-_.each(fs.readdirSync('./routes'), function (file) {
-    require('./routes/' + file).routes(app);
+_.each(fs.readdirSync('./routes'), function(file) {
+    if (file !== 'error.js') {
+        require('./routes/' + file).routes(app);
+    }
 });
 
-// Error logging
-app.use(function (err, req, res, next) {
-    console.error(err);
-    next(err);
-});
+// Error routes
+require('./routes/error.js').routes(app);
 
-// Route not found (404)
-app.use(function (req, res) {
-    console.log('ROUTE NOT FOUND');
-    res.status(404);
-    res.render('404', { url: req.url });
-});
-
-// Server errors (500)
-app.use(function (err, req, res, next) {
-    res.status(500);
-    res.render('500', { error: err, env: app.get('env') });
-});
-
-app.start = function (port, done) {
-    hbs.registerPartials(__dirname + '/views/partials', function () {
-        var server = app.listen(port, function () {
+app.start = function(port, done) {
+    hbs.registerPartials(__dirname + '/views/partials', function() {
+        var server = app.listen(port, function() {
             console.log('Full On now listening on port ' + port);
         });
-        if(done){
+        if (done) {
             done(server);
         }
     });
