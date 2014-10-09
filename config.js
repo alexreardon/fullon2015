@@ -5,7 +5,7 @@ var format = require('util').format,
 // request access from Alex Reardon
 
 // used in multiple places
-var date_earlybird_end = '17.11.2015';
+var date_earlybird_end = '17.11.2014';
 
 var config = {
 
@@ -59,7 +59,7 @@ var config = {
         date_format_file: 'YYYY-MM-DD--HH-mm-ss',
 
         date_camp_start: '02.01.2015',
-        date_register_end: '15.12.2015',
+        date_register_end: '15.12.2014',
         date_earlybird_end: date_earlybird_end,
 
         // camper types
@@ -77,7 +77,7 @@ var config = {
                 icon: 'fa-paper-plane-o'
             },
             leader: {
-                fee: 300,
+                fee: 320,
                 description: 'The Masters',
                 icon: 'fa-coffee'
             }
