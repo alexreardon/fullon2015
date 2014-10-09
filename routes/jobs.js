@@ -7,9 +7,7 @@ var spreadsheet = require('../jobs/spreadsheet'),
 
 function unathorised(req, res) {
     res.status(401);
-    if(req.xhr) {
-        return res.json({ 401: 'unathorised'});
-    }
+    res.set('WWW-Authenticate', 'Basic realm="Password required for FullOn resource"');
     res.end('unathorised');
 }
 
