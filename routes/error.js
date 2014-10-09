@@ -31,6 +31,6 @@ exports.routes = function(app) {
         if (req.xhr) {
             return res.json({ 500: 'server error'});
         }
-        res.render('500', { error: err, env: app.get('env') });
+        res.render('500', { error: err, env: process.env.NODE_ENV || 'development' });
     });
 };
