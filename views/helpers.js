@@ -5,6 +5,7 @@ var format = require('util').format,
 	path = require('path'),
 	validation = require('../util/validation'),
 	_ = require('underscore'),
+    moment = require('moment'),
 
 	templates = require('../util/templates').helpers,
 	camper_types_array = Object.keys(config.application.camper_types);
@@ -43,6 +44,11 @@ exports.if_not_equal = function (v1, v2, options) {
 		return options.fn(this);
 	}
 	return options.inverse(this);
+};
+
+exports.print_readable_date = function(date, options) {
+    var target = moment(date, config.application.date_format_short);
+    return target.format(config.application.date_format_readable);
 };
 
 // https://gist.github.com/burin/1048968

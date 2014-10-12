@@ -56,9 +56,11 @@ var config = {
         // dates
         date_format_short: 'DD.MM.YYYY',
         date_format_long: 'DD.MM.YYYY HH:mm:ss', //TODO
+        date_format_readable: 'Do MMMM YYYY', // 1st January 2015
         date_format_file: 'YYYY-MM-DD--HH-mm-ss',
 
         date_camp_start: '02.01.2015',
+        date_camp_end: '07.01.2015',
         date_register_end: '15.12.2014',
         date_earlybird_end: date_earlybird_end,
 

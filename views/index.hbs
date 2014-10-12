@@ -54,7 +54,8 @@
 
         <h3><i class="fa fa-fw fa-calendar"></i> When?</h3>
 
-        <p>Full On will take place on 2nd-8th January 2015.</p>
+        <p>Full On will take place on {{print_readable_date config.date_camp_start}}
+            - {{print_readable_date config.date_camp_end}}</p>
 
         <h3><i class="fa fa-fw fa-pencil"></i> Registrations</h3>
 
@@ -62,7 +63,7 @@
 
         {{#if data.is_registration_open}}
             <p>
-                Registrations close on <strong>{{config.date_register_end}}</strong>
+                Registrations close on <strong>{{print_readable_date config.date_register_end}}</strong>
                 ({{data.days_to_registration_close}} days to go!)<br>
                 For more information about cost, discounts and payment methods, see <a href="/#pricing">pricing</a>.
             </p>
@@ -117,17 +118,19 @@
         <h3><i class="fa fa-fw fa-bus"></i> Travelling to and from Camp</h3>
 
         <p>
-            We will be traveling to and from camp by coach (who needs eagles?).
+            We will be traveling to and from camp by coach.
             You will need to meet at <a href="http://en.stphils.org.au/">St Philip’s Anglican
-            Church Eastwood Church</a> (cnr Shaftsbury Rd &amp; Rutledge St, Eastwood).
-            We leave on <strong>Wednesday 1 January 2014</strong> at 10.00 am, so arrive no later than <strong>9.15
+            Church Eastwood</a> (cnr Shaftsbury Rd &amp; Rutledge St, Eastwood).
+            We leave on <strong>{{print_readable_date config.date_camp_start}}</strong> at 10.00 am, so arrive no later
+            than <strong>9.15
             am</strong> to pack your gear.  We will arrive at camp around 11.30 am.
         </p>
 
         <p>
             We arrive back at <a href="http://en.stphils.org.au/">St Philip’s Anglican Church Eastwood</a> on
-            <strong>Monday 6 January</strong> at around 3.00 pm (Mum or Dad don’t forget!).  We will be leaving camp
-            by 1.30 pm.  Please contact Mike Smith (see <a href="#contact">Contact</a>) if there is
+            <strong>{{print_readable_date config.date_camp_end}}</strong> at around 3.00 pm (Mum or Dad don’t forget!). 
+            We will be leaving
+            camp by 1.30 pm.  Please contact Mike Smith (see <a href="#contact">Contact</a>) if there is
             any reason you need to travel separately to or from camp.
         </p>
 
@@ -257,7 +260,9 @@
             <li>Long pants</li>
             <li>Warm Top</li>
             <li>Long sleeved shirt</li>
-            <li>Raincoat (Our activities will still continue in the rain. We don't want you getting sick)</li>
+            <li>Raincoat or a jacket that can get wet (Our activities will still continue in the rain. We don't want you
+                getting sick)
+            </li>
             <li>Sandshoes (two pairs as one <strong>will get wet</strong>)</li>
             <li>Shirts</li>
             <li>Socks</li>
@@ -265,17 +270,15 @@
             <li>Suncream (30+ is best)</li>
             <li>Sunglasses (better to have than sore eyes &amp; a headache)</li>
             <li>Swimmers (string bikinis come off in the surf)</li>
-            <li>Thongs (sandals are better than thongs. Especially with socks! But seriously, sandals will protect your
-                feet more)
-            </li>
-            <li>Torch (you will need it for our journey to Mordor)</li>
+            <li>Thongs or sandals</li>
+            <li>Torch</li>
         </ul>
         <h3><i class="fa fa-fw fa-moon-o"></i> Night Time</h3>
         <ul>
             <li>Pillowslip (Pillows and blankets are provided.  Pillowslips ensure you don’t catch the last persons head
                 lice)
             </li>
-            <li>Sleeping bag &amp; sheets</li>
+            <li>Sleeping bag and or linen</li>
             <li>PJ’s</li>
         </ul>
 
@@ -283,12 +286,14 @@
     <div class="col-md-6">
         <h3><i class="fa fa-fw fa-tree"></i> Hygiene <span class="text-danger">(extremely not optional)</span></h3>
         <ul>
-            <li>Toiletries (Soap, shampoo, toothbrush, toothpaste, deodorant and so on</li>
+            <li>Toiletries (soap, shampoo, toothbrush, toothpaste, deodorant and so on)</li>
             <li>Bath towel</li>
         </ul>
         <h3><i class="fa fa-fw fa-star"></i> Other (optional)</h3>
         <ul>
-            <li>Lord of the Rings Outfit (will help you look authentic for our final night quest)</li>
+            <li>Space themed costume for the final night. Some ideas include astronauts, star wars characters, star trek
+                characters, robots and so on
+            </li>
             <li>Teddy Bear (For hugs. Will not be allowed to participate in some activities)</li>
             <li>Chocolate (for your leaders; I mean friends! Can be used for bribes)</li>
             <li>Extra money for the day out. Juniors [{{config.camper_types.junior.description}}] have access to a
@@ -308,9 +313,9 @@
             <li>Mobile phones including iPhones (don’t make us take them from you)</li>
             <li>Cigarettes</li>
             <li>Confectionery (any junk food except Chocolate [see above])</li>
-            <li>Alcohol or drugs</li>
+            <li>Alcohol and or drugs</li>
             <li>Valuables (any jewellery &amp; large amounts of money)</li>
-            <li>Matches/ lighters</li>
+            <li>Matches and or lighters</li>
             <li>Potential weapons (pocket knives, orange guns [seriously, what are these?], etc.)</li>
             <li>Pets</li>
         </ul>

@@ -8,7 +8,7 @@ var expect = require('expect.js'),
 	email = require('../../util/email'),
 	app = require('../../app');
 
-describe.skip('Registration', function () {
+describe('Registration', function () {
 
 	// Some of these tests can take some time
 	this.timeout(10000);
