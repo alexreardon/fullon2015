@@ -56,6 +56,11 @@ fullon.views.common = Backbone.View.extend({
 
         this.resize();
 
+        $('.datepicker').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true
+        });
+
         $(window).on('resize', function() {
             this.throttled_resize();
         }.bind(this));

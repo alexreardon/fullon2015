@@ -5,6 +5,7 @@
     <div class="landing-content">
 
         <h1 class="landing-logo">Full On: Interstellar</h1>
+
         <button class="trailer-video-launch btn btn-primary btn-lg">
             <i class="fa fa-play"></i>
             Watch trailer
@@ -59,12 +60,14 @@
 
         <h3><i class="fa fa-fw fa-pencil"></i> Registrations</h3>
 
-
-
         {{#if data.is_registration_open}}
             <p>
                 Registrations close on <strong>{{print_readable_date config.date_register_end}}</strong>
-                ({{data.days_to_registration_close}} days to go!)<br>
+                <span class="text-success">({{data.days_to_registration_close}} days left)</span><br>
+                {{#if data.is_earlybird_open}}
+                    Early bird discount closes on <strong>{{print_readable_date config.date_earlybird_end}}</strong>
+                    <span class="text-success">(Save ${{config.discounts.earlybird.amount}}! {{data.days_to_earlybird_end}} days left)</span><br>
+                {{/if}}
                 For more information about cost, discounts and payment methods, see <a href="/#pricing">pricing</a>.
             </p>
 
@@ -76,7 +79,8 @@
 
         {{else}}
             <p>
-                Registrations are <strong class="text-danger">closed.</strong>
+                Registrations are <strong class="text-danger">closed.</strong><br>
+                For late registrations, please contact <a href="/#contact">Mike Smith</a>.
             </p>
         {{/if}}
 

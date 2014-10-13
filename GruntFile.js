@@ -12,7 +12,8 @@ module.exports = function(grunt) {
             'bower_components/jquery/dist/jquery.js',
             'bower_components/player-api/javascript/froogaloop.js',
             'bower_components/backbone/backbone.js',
-            'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js'
+            'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+            'bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js'
         ],
 
         client_js_app_files = [
@@ -31,7 +32,6 @@ module.exports = function(grunt) {
 
         handlebars_templates = 'public/js/template/**/*.handlebars',
 
-        less_files = ['public/less/**/*.less'],
         sass_files = ['public/scss/**/*.scss'];
 
     // Project configuration.
@@ -59,22 +59,6 @@ module.exports = function(grunt) {
             }
         },
 
-        less: {
-            dev: {
-                files: {
-                    'public/css/build.css': 'public/less/main.less'
-                }
-            },
-            prod: {
-                files: {
-                    'public/css/build.css': 'public/less/main.less'
-                },
-                options: {
-                    yuicompress: true
-                }
-            }
-        },
-
         sass: {                                    // task
             dist: {                                // target
                 files: {                        // dictionary of files
@@ -84,14 +68,6 @@ module.exports = function(grunt) {
                     // includePaths: require('node-bourbon').with('other/path', 'another/path')
                     // - or -
                     includePaths: require('node-bourbon').includePaths
-                }
-            }
-        },
-
-        browserify: {
-            main: {
-                files: {
-                    'public/js/build/common.build.js': ['public/js/common.js']
                 }
             }
         },
@@ -138,10 +114,6 @@ module.exports = function(grunt) {
             sass: {
                 tasks: ['sass'],
                 files: sass_files
-            },
-            less: {
-                tasks: ['less:dev'],
-                files: less_files
             }
 
         },
@@ -236,9 +208,7 @@ module.exports = function(grunt) {
 
     //Load plugins
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-handlebars');
-    grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -248,7 +218,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-modernizr');
 
     //Development
-//	grunt.registerTask('dev', ['less:dev', 'browserify', 'concat']);
     grunt.registerTask('dev', ['sass', 'concat', 'modernizr', 'run']);
 
     grunt.registerTask('run', ['concurrent:target']);
