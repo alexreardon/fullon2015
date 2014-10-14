@@ -5,7 +5,8 @@ var format = require('util').format,
 // request access from Alex Reardon
 
 // used in multiple places
-var date_earlybird_end = '17.11.2014';
+var date_earlybird_end = '17.11.2014',
+    date_format_short = 'DD.MM.YYYY';
 
 var config = {
 
@@ -18,6 +19,7 @@ var config = {
 
     // web
     port: process.env.PORT || 80,
+    tz: process.env.TZ || 'Australia/Sydney',
     cookie_secret: process.env.fullon_cookie_secret || 'some secret key',
     session_secret: process.env.fullon_session_secret || 'some session secret',
 
@@ -54,13 +56,16 @@ var config = {
         leaderboard_size: 10,
 
         // dates
-        date_format_short: 'DD.MM.YYYY',
-        date_format_long: 'DD.MM.YYYY HH:mm:ss', //TODO
+        date_format_short: date_format_short,
+        date_format_long: date_format_short + ' HH:mm',
         date_format_readable: 'Do MMMM YYYY', // 1st January 2015
         date_format_file: 'YYYY-MM-DD--HH-mm-ss',
+        date_format_ical: 'YYYYMMDDTHHmmssZ',
+        date_format_time: 'HH:mm',
 
-        date_camp_start: '02.01.2015',
-        date_camp_end: '07.01.2015',
+        date_camp_start: '02.01.2015 10:00',
+        date_camp_end: '07.01.2015 15:00',
+        // 3pm
         date_register_end: '15.12.2014',
         date_earlybird_end: date_earlybird_end,
 

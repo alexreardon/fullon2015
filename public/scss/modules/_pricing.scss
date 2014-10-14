@@ -1,3 +1,27 @@
+$pricing-info-icon-width: 40px;
 .pricing-paypal {
     margin-top: ($line-height-computed / 2);
+}
+
+.pricing-info-alert {
+    position: relative;
+}
+
+.pricing-info-alert-icon {
+    bottom: 0;
+    position: absolute;
+
+    top: 0;
+    width: $pricing-info-icon-width;
+
+    > .fa {
+        bottom: 0;
+        position: absolute;
+        margin-top: -$font-size-base;
+        top: 50%;
+    }
+}
+
+.pricing-info-alert-content {
+    margin-left: $pricing-info-icon-width;
 }

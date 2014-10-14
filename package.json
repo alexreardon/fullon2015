@@ -44,6 +44,7 @@
     "grunt-nodemon": "^0.2.1",
     "handlebars": "^2.0.0-alpha",
     "hbs": "^2.7.0",
+    "icalevent": "^0.3.2",
     "less-middleware": "^1.0.3",
     "method-override": "^2.0.2",
     "moment": "^2.7.0",

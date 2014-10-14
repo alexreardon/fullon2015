@@ -1,54 +1,55 @@
 <section id="register_confirmation" class="l-margin-top-header-nav">
-	<div class="container">
-		<h2>{{registration.data.first_name}} {{registration.data.last_name}}</h2>
+    <div class="container">
+        <h2>{{registration.data.first_name}} {{registration.data.last_name}}</h2>
 
-		<h1>You're <span class="fill">in!</span></h1>
+        <h1>You're <span class="fill">in!</span></h1>
 
-		{{#unless email}}
-			<div class="alert alert-success">
-				<p>
-					A confirmation email has been sent to <strong>{{registration.data.payer_email}}</strong>
-				</p>
-			</div>
-		{{/unless}}
+        {{#unless email}}
+            <div class="alert alert-success">
+                <p>
+                    A confirmation email has been sent to <strong>{{registration.data.payer_email}}</strong>
+                </p>
+            </div>
+        {{/unless}}
 
 
-		<div class="alert alert-success">
-			<p>
-				<strong>Your reference:</strong> {{registration._id}}
-			</p>
+        <div class="alert alert-success">
+            <p>
+                <strong>Your reference:</strong> {{registration._id}}
+            </p>
 
-			{{!paypal}}
-			{{#if_equal registration.data.payment_method config.payment_types.paypal.name}}
-				<p>
-					<strong>Payment type</strong> {{../config.payment_types.paypal.text}}
-				</p>
-				<p>
-					<strong>Paid</strong> ${{../registration.data.payment_total}}
-				</p>
+            {{!paypal}}
+            {{#if_equal registration.data.payment_method config.payment_types.paypal.name}}
+                <p>
+                    <strong>Payment type</strong> {{../config.payment_types.paypal.text}}
+                </p>
 
-				<p>
-					You're good to go!
-				</p>
-			{{/if_equal}}
+                <p>
+                    <strong>Paid</strong> ${{../registration.data.payment_total}}
+                </p>
 
-			{{! other }}
-			{{#if_equal registration.data.payment_method config.payment_types.other.name}}
-				<p>
-					<strong>Outstanding amount</strong> ${{../registration.data.payment_total}}
-				</p>
+                <p>
+                    You're good to go!
+                </p>
+            {{/if_equal}}
 
-				<p>
-					If using bank deposit, please use the following details for your payment:
-				</p>
+            {{! other }}
+            {{#if_equal registration.data.payment_method config.payment_types.other.name}}
+                <p>
+                    <strong>Outstanding amount</strong> ${{../registration.data.payment_total}}
+                </p>
 
-				<p>
-					<strong>Reference:</strong> {{../registration._id}}<br/>
-					<strong>Account Name:</strong> {{../config.bank_details.name}}<br/>
-					<strong>BSB:</strong> {{../config.bank_details.bsb}}<br/>
-					<strong>Account Number:</strong> {{../config.bank_details.number}}
-				</p>
-			{{/if_equal}}
+                <p>
+                    If using bank deposit, please use the following details for your payment:
+                </p>
+
+                <h3>Bank Details:</h3>
+
+                <p>
+                    <strong>Reference:</strong> {{../registration._id}}<br/>
+                    {{>payment_bank_details ../config}}
+                </p>
+            {{/if_equal}}
 
             {{! installment }}
             {{#if_equal registration.data.payment_method config.payment_types.installment.name}}
@@ -56,17 +57,26 @@
                     <strong>Outstanding amount</strong> ${{../registration.data.payment_total}}
                 </p>
 
-                <h3>TODO: installment details</h3>
+                <p>
+                    {{>payment_installment_details}}
+                </p>
+
+                <h3>Bank Details:</h3>
+
+                <p>
+                    <strong>Reference:</strong> {{../registration._id}}<br/>
+                    {{>payment_bank_details ../config}}
+                </p>
             {{/if_equal}}
 
 
-			{{! assistance}}
-			{{#if_equal registration.data.payment_method config.payment_types.request_assistance.name}}
-				<p>
-					Somebody will be in contact with you shortly to organise payment assistance
-				</p>
-			{{/if_equal}}
-		</div>
+            {{! assistance}}
+            {{#if_equal registration.data.payment_method config.payment_types.request_assistance.name}}
+                <p>
+                    Somebody will be in contact with you shortly to organise payment assistance
+                </p>
+            {{/if_equal}}
+        </div>
 
-	</div>
+    </div>
 </section>

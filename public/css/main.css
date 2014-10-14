@@ -6735,6 +6735,9 @@ button.close {
   .is-trailer-playing .trailer-video-launch {
     opacity: 0; }
 
+.about-when {
+  padding-left: 4px; }
+
 .contact-item {
   background-color: #181d26;
   border-radius: 20px;
@@ -6795,6 +6798,23 @@ button.close {
 
 .pricing-paypal {
   margin-top: 10px; }
+
+.pricing-info-alert {
+  position: relative; }
+
+.pricing-info-alert-icon {
+  bottom: 0;
+  position: absolute;
+  top: 0;
+  width: 40px; }
+  .pricing-info-alert-icon > .fa {
+    bottom: 0;
+    position: absolute;
+    margin-top: -14px;
+    top: 50%; }
+
+.pricing-info-alert-content {
+  margin-left: 40px; }
 
 .register-nav {
   margin-top: 50px; }

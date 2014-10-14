@@ -55,18 +55,23 @@
 
         <h3><i class="fa fa-fw fa-calendar"></i> When?</h3>
 
-        <p>Full On will take place on {{print_readable_date config.date_camp_start}}
-            - {{print_readable_date config.date_camp_end}}</p>
+        <p>
+            Full On will take place on
+            <a href="/cal/fullon.ics" class="about-when"><i class="fa fa-calendar"></i>
+                {{print_readable_date config.date_camp_start}}
+                - {{print_readable_date config.date_camp_end}}</a>
+        </p>
 
         <h3><i class="fa fa-fw fa-pencil"></i> Registrations</h3>
 
         {{#if data.is_registration_open}}
             <p>
-                Registrations close on <strong>{{print_readable_date config.date_register_end}}</strong>
-                <span class="text-success">({{data.days_to_registration_close}} days left)</span><br>
+                Registrations close on {{print_readable_date config.date_register_end}}
+                - {{data.days_to_registration_close}} days left<br>
                 {{#if data.is_earlybird_open}}
-                    Early bird discount closes on <strong>{{print_readable_date config.date_earlybird_end}}</strong>
-                    <span class="text-success">(Save ${{config.discounts.earlybird.amount}}! {{data.days_to_earlybird_end}} days left)</span><br>
+                    Early bird discount closes on {{print_readable_date config.date_earlybird_end}}
+                    - {{data.days_to_earlybird_end}} days left <a href="/#pricing" class="text-success">(Save
+                    ${{config.discounts.earlybird.amount}}!)</a><br>
                 {{/if}}
                 For more information about cost, discounts and payment methods, see <a href="/#pricing">pricing</a>.
             </p>
@@ -207,6 +212,16 @@
     <div class="col-md-6">
         <h3><i class="fa fa-fw fa-credit-card"></i> Payment Methods</h3>
 
+        <div class="alert alert-info pricing-info-alert" role="alert">
+            <div class="pricing-info-alert-icon">
+                <i class="fa fa-warning fa-2x"></i>
+            </div>
+            <div class="pricing-info-alert-content">
+                <strong>Heads up!</strong> When you register you will be prompted to select a payment method. More details
+                will be provided to you at that time.
+            </div>
+
+        </div>
         <h4>PayPal (PayPal accounts and Credit Cards)</h4>
         We accept online payments using PayPal. This allows you to pay securely online using your paypal account or
         credit card.
@@ -233,7 +248,9 @@
 
         <h4>Installments</h4>
 
-        <p>For the first time this year we are offering the ability to pay by installments.</p>
+        <p>
+            {{>payment_installment_details}}
+        </p>
 
         <h4>Request Assistance</h4>
 
@@ -399,7 +416,7 @@
 
                 <ul class="fa-ul contact-item-details">
                     <li>
-                        <i class="fa-li fa fa-envelope"></i><a href="mailto:echo-froggy@hotmail.com?subject='Full%20On%20-%20Chocolate%20Website%20Enquiry'">echo-froggy@hotmail.com </a>
+                        <i class="fa-li fa fa-envelope"></i><a href="mailto:geoffpullen@outlook.com?subject='Full%20On%20-%20Chocolate%20Website%20Enquiry'">geoffpullen@outlook.com</a>
                     </li>
                 </ul>
             </div>

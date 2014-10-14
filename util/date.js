@@ -12,7 +12,7 @@ var time_periods = {
     'late-night': [21, 22, 23, 0, 1, 2, 3, 4]
 };
 
-exports.get_days_until = function (end_date) {
+exports.get_days_until = function(end_date) {
 
     var now = moment(),
         end = moment(end_date, config.application.date_format_short);
@@ -20,7 +20,7 @@ exports.get_days_until = function (end_date) {
     return end.diff(now, 'days');
 };
 
-exports.get_page_data = function () {
+exports.get_page_data = function() {
     var data = {
         days_to_camp: exports.get_days_until(config.application.date_camp_start),
         days_to_earlybird_end: exports.get_days_until(config.application.date_earlybird_end),
@@ -34,16 +34,26 @@ exports.get_page_data = function () {
     return data;
 };
 
-exports.get_current_time_period = function (hour) {
+exports.get_current_time_period = function(hour) {
     var now = moment(),
         current_hour = hour || now.hour();
 
     var result;
-    _.each(time_periods, function (item, key) {
+    _.each(time_periods, function(item, key) {
         if (_.contains(item, current_hour)) {
             result = key;
         }
     });
 
     return result;
+};
+
+exports.get_ical_data = function() {
+    var start = moment(config.application.date_camp_start, config.application.date_format_long),
+        end = moment(config.application.date_camp_end, config.application.date_format_long);
+
+    return {
+      start: start.format(config.date_format_ical),
+      end: end.format(config.date_format_ical)
+    };
 };
