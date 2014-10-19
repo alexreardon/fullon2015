@@ -182,7 +182,7 @@ exports.routes = function(app) {
             }
 
             var data = {
-                config: config.application,
+                config: config,
                 registration: r,
                 title: 'Confirmation'
             };

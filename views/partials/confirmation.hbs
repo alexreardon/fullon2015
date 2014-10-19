@@ -23,9 +23,9 @@
             </p>
 
             {{!paypal}}
-            {{#if_equal registration.data.payment_method config.payment_types.paypal.name}}
+            {{#if_equal registration.data.payment_method config.application.payment_types.paypal.name}}
                 <p>
-                    <strong>Payment type</strong> {{../config.payment_types.paypal.text}}
+                    <strong>Payment type</strong> {{../config.application.payment_types.paypal.text}}
                 </p>
 
                 <p>
@@ -38,7 +38,7 @@
             {{/if_equal}}
 
             {{! other }}
-            {{#if_equal registration.data.payment_method config.payment_types.other.name}}
+            {{#if_equal registration.data.payment_method config.application.payment_types.other.name}}
                 <p>
                     <strong>Outstanding amount</strong> ${{../registration.data.payment_total}}
                 </p>
@@ -51,12 +51,12 @@
 
                 <p>
                     <strong>Reference:</strong> {{../registration._id}}<br/>
-                    {{>payment_bank_details ../config}}
+                    {{>payment_bank_details ../config.application}}
                 </p>
             {{/if_equal}}
 
             {{! installment }}
-            {{#if_equal registration.data.payment_method config.payment_types.installment.name}}
+            {{#if_equal registration.data.payment_method config.application.payment_types.installment.name}}
                 <p>
                     <strong>Outstanding amount</strong> ${{../registration.data.payment_total}}
                 </p>
@@ -69,13 +69,13 @@
 
                 <p>
                     <strong>Reference:</strong> {{../registration._id}}<br/>
-                    {{>payment_bank_details ../config}}
+                    {{>payment_bank_details ../config.application}}
                 </p>
             {{/if_equal}}
 
 
             {{! assistance}}
-            {{#if_equal registration.data.payment_method config.payment_types.request_assistance.name}}
+            {{#if_equal registration.data.payment_method config.application.payment_types.request_assistance.name}}
                 <p>
                     Somebody will be in contact with you shortly to organise payment assistance
                 </p>
