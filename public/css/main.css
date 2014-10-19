@@ -6713,6 +6713,12 @@ button.close {
     opacity: 1; }
 
 .trailer-video-launch {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
   bottom: 30px;
   display: block;
   left: 50%;
@@ -6721,19 +6727,31 @@ button.close {
   opacity: 0;
   text-transform: uppercase;
   width: 300px;
-  z-index: 30;
-  -webkit-transition-property: opacity;
-  transition-property: opacity;
-  -webkit-transition-duration: 1s;
-  transition-duration: 1s;
-  -webkit-transition-timing-function: ease;
-  transition-timing-function: ease; }
+  z-index: 30; }
   .trailer-video-launch > .fa {
     padding-right: 12px; }
   .trailer-video-launch.is-ready {
     opacity: 1; }
   .is-trailer-playing .trailer-video-launch {
     opacity: 0; }
+
+.trailer-video-close {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  bottom: 0;
+  color: #FFF;
+  padding-bottom: 30px;
+  position: absolute;
+  opacity: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 30; }
+  .is-trailer-playing .trailer-video-close {
+    opacity: 1; }
 
 .about-when {
   padding-left: 4px; }

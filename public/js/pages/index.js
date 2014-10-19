@@ -9,6 +9,7 @@ fullon.views.index = Backbone.View.extend({
         this.$trailer_video_launch = $('.trailer-video-launch');
         this.$trailer_video = $('#trailer-video');
         this.$f_trailer_video_iframe = $f(this.$trailer_video[0]);
+        this.$trailer_video_close = $('.trailer-video-close');
 
         this.$f_trailer_video_iframe.addEvent('ready', function(player_id) {
             this.onTrailerVideoReady(player_id);
@@ -21,6 +22,10 @@ fullon.views.index = Backbone.View.extend({
         this.landing_video.oncanplay = function() {
             this.onLandingVideoReady();
         }.bind(this);
+
+        this.$trailer_video_close.on('click', function() {
+            this.stopTrailer();
+        }.bind(this));
 
     },
 
@@ -62,6 +67,10 @@ fullon.views.index = Backbone.View.extend({
     onTrailerPlayed: function() {
         this.$nav_bar.addClass('is-trailer-playing');
         console.log('trailer played');
+    },
+
+    stopTrailer: function() {
+        this.setTrailerMode(false);
     },
 
     setTrailerMode: function(show) {

@@ -90,6 +90,7 @@ $z-index-logo: 30;
 .landing-content {
     z-index: $z-index-content;
 }
+
 .landing-video-container {
     margin-top: $navbar-height * 2;
 }
@@ -136,6 +137,10 @@ $z-index-logo: 30;
 .trailer-video-launch {
     $width: 300px;
 
+    @include transition-property(opacity);
+    @include transition-duration($transition-duration);
+    @include transition-timing-function(ease);
+
     bottom: $grid-gutter-width;
     display: block;
     left: 50%;
@@ -145,10 +150,6 @@ $z-index-logo: 30;
     text-transform: uppercase;
     width: $width;
     z-index: $z-index-logo;
-
-    @include transition-property(opacity);
-    @include transition-duration($transition-duration);
-    @include transition-timing-function(ease);
 
     > .fa {
         padding-right: $padding-base-horizontal;
@@ -160,5 +161,25 @@ $z-index-logo: 30;
 
     .is-trailer-playing & {
         opacity: 0;
+    }
+}
+
+.trailer-video-close {
+    @include transition-property(opacity);
+    @include transition-duration($transition-duration);
+    @include transition-timing-function(ease);
+
+    bottom: 0;
+    color: $text-color;
+    padding-bottom: $grid-gutter-width;
+    position: absolute;
+    opacity: 0;
+    text-align: center;
+    width: 100%;
+
+    z-index: $z-index-logo;
+
+    .is-trailer-playing & {
+        opacity: 1;
     }
 }
