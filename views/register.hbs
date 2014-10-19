@@ -54,6 +54,7 @@
 
                             <a href="javascript:;" data-id="{{@key}}" class="allegiance-btn btn btn-primary btn-block btn-lg text-capitalize" href="#"><i class="fa fa-fw {{icon}}"></i> {{@key}}
                             </a>
+
                             <p class="text-center">{{description}}</p>
                         </div>
                     {{/each}}
@@ -217,7 +218,10 @@
 
             <p> My signature below (or agreement via web form) indicates my willingness to permit the applicant
                 camper to participate fully in all activities associated with the camp FULL ON run by St Philip’s
-                Eastwood Anglican Church (1st Jan – 6th Jan 2014), with the exception of those activities named on
+                Eastwood Anglican Church
+                ({{print_readable_date config.date_camp_start}}
+                - {{print_readable_date config.date_camp_end}}),
+                with the exception of those activities named on
                 the registration form.</p>
 
             <p> While every precaution shall be taken to ensure the good welfare and protection of the applicant
