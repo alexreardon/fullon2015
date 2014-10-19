@@ -161,6 +161,7 @@ if (process.env.NODE_ENV !== 'production') {
 config.admin_emails.push('alexreardon@gmail.com');
 if (process.env.NODE_ENV === 'production') {
     config.admin_emails.push('mikes@stphils.org.au');
+    config.admin_emails.push('geoffpullen@outlook.com');
 }
 
 var errors = [];
