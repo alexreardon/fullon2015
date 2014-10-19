@@ -134,7 +134,7 @@ var config = {
             },
             installment: {
                 name: 'payment_installment',
-                text: 'INSTALLMENT TO DO'
+                text: 'Pay by installment'
             },
             request_assistance: {
                 name: 'payment_request_assistance',

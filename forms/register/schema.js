@@ -503,7 +503,7 @@ var data = {
 			payment_method: {
 				name: 'payment_method',
 				text: 'Select your payment method',
-				info: 'For more information about these choices see our <a href="/#about" target="_blank">about page</a>',
+				info: 'For more information about these choices see our <a href="/#pricing" target="_blank">pricing page</a>',
 				type: 'radio',
 				options: (function () {
 					var result = [];
