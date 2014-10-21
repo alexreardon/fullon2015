@@ -14,7 +14,6 @@ window.fullon = {
 fullon.views.feature_detect = Backbone.View.extend({
     initialize: function() {
         this.$modal = $('.upgrade-modal');
-
     },
     isBrowserSupported: function() {
 
@@ -44,6 +43,17 @@ fullon.views.feature_detect = Backbone.View.extend({
             backdrop: 'static'
         });
     }
+
+}, {
+    TRANS_END_EVENT_NAME: (function() {
+
+        var transEndEventNames = {
+            'WebkitTransition': 'webkitTransitionEnd',// Saf 6, Android Browser
+            'MozTransition': 'transitionend',      // only for FF < 15
+            'transition': 'transitionend'       // IE10, Opera, Chrome, FF 15+, Saf 7+
+        };
+        return transEndEventNames[ Modernizr.prefixed('transition') ];
+    })()
 });
 
 fullon.views.common = Backbone.View.extend({
@@ -181,6 +191,8 @@ fullon.views.common = Backbone.View.extend({
 fullon.views.index = Backbone.View.extend({
 
     initialize: function() {
+        this.transEndEventName = fullon.views.feature_detect.TRANS_END_EVENT_NAME;
+
         this.$nav_bar = $('.fo-navbar');
         this.$landing = $('.landing');
         this.$landing_video = $('.landing-video');
@@ -260,6 +272,16 @@ fullon.views.index = Backbone.View.extend({
 
         // hide navbar
         this.$nav_bar[method]('is-trailer-playing');
+
+        if (this.transEndEventName) {
+            if (!show) {
+                this.$trailer_video_close.one(this.transEndEventName, function() {
+                    $(this).addClass('hide');
+                });
+            } else {
+                this.$trailer_video_close.removeClass('hide');
+            }
+        }
 
         if (show) {
             this.$trailer_video_launch.attr('disabled', 'disabled');

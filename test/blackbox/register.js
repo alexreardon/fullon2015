@@ -125,4 +125,8 @@ describe('Registration', function() {
             done();
         });
     });
+
+    describe('PayPal', function() {
+
+    });
 });

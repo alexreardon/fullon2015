@@ -1,6 +1,8 @@
 fullon.views.index = Backbone.View.extend({
 
     initialize: function() {
+        this.transEndEventName = fullon.views.feature_detect.TRANS_END_EVENT_NAME;
+
         this.$nav_bar = $('.fo-navbar');
         this.$landing = $('.landing');
         this.$landing_video = $('.landing-video');
@@ -80,6 +82,16 @@ fullon.views.index = Backbone.View.extend({
 
         // hide navbar
         this.$nav_bar[method]('is-trailer-playing');
+
+        if (this.transEndEventName) {
+            if (!show) {
+                this.$trailer_video_close.one(this.transEndEventName, function() {
+                    $(this).addClass('hide');
+                });
+            } else {
+                this.$trailer_video_close.removeClass('hide');
+            }
+        }
 
         if (show) {
             this.$trailer_video_launch.attr('disabled', 'disabled');
