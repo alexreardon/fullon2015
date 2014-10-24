@@ -433,14 +433,19 @@ var data = {
             },
             shirt_size: {
                 name: 'shirt_size',
-                text: 'What the shirt size of the camper?',
+                text: 'What the shirt size of the camper? (Half chest cm)',
+                info: 'Half chest refers to the distance from one armpit to the other',
                 type: 'radio',
                 options: [
-                    { text: 'XS', value: 'XS' },
-                    { text: 'S', value: 'S' },
-                    { text: 'M', value: 'M' },
-                    { text: 'L', value: 'L' },
-                    { text: 'XL', value: 'XL' }
+                    { text: '8 (40cm)', value: '8' },
+                    { text: '10 (42.5cm)', value: '10' },
+                    { text: '12 (45cm)', value: '12' },
+                    { text: 'S (51.5cm)', value: 'S' },
+                    { text: 'M (54cm)', value: 'M' },
+                    { text: 'L (56.5cm)', value: 'L' },
+                    { text: 'XL (59cm)', value: 'XL' },
+                    { text: 'XXL (62cm)', value: 'XXL' },
+                    { text: '3XL (66cm)', value: '3XL' }
 
                 ],
                 validation: {
