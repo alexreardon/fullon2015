@@ -715,7 +715,7 @@ fullon.views.register.costs = Backbone.View.extend({
 
     use_dropdown: function(show) {
         var val = Number(this.$dropdown.val());
-        if (_.isNumber(val)) {
+        if (!_.isNumber(val)) {
             val = 0;
         }
         var total = fullon.config.discounts.chocolate.amount * val;
