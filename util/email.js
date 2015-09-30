@@ -6,7 +6,8 @@ var nodemailer = require('nodemailer'),
     format = require('util').format,
     templates = require('./templates').email;
 
-var smtpTransport = nodemailer.createTransport('SMTP', {
+
+var transport = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
         user: config.google_username,
@@ -40,8 +41,8 @@ module.exports = {
             options.bcc = params.bcc;
         }
 
-        smtpTransport.sendMail(options, function(err, response) {
-            console.log(format('sending email [to: "%s" subject: "%s"]', options.to, options.subject));
+        console.log(format('sending email [to: "%s" subject: "%s"]', options.to, options.subject));
+        transport.sendMail(options, function(err, response) {
 
             if (err) {
                 console.error('failed: ' + err);

@@ -173,6 +173,11 @@ base_model.save_multiple = function (elements, cb) {
 		successCount = 0,
 		failureCount = 0;
 
+	if(!elements.length) {
+		console.log('no point saving multiple - there is nothing to save!');
+		return cb();
+	}
+
 	_.each(elements, function (item) {
 		item.save(function (err) {
 			if (err) {
