@@ -1,42 +1,36 @@
-$fo_font_heading: 'bebas_neueregular';
-$fo_font_sub_heading: 'montserratbold';
-$fo_font_body: 'montserratregular';
+$fo_font_heading: 'fo-font-heading';
+$fo_font_heading_path: '../font/lhf_prentice/lhfprenticefancy_Web';
+//$fo_font_sub_heading: 'montserratbold';
+$fo_font_sub_heading: 'fo-font-sub-heading';
+$fo_font_sub_heading_path: '../font/libre_baskerville/librebaskerville-bold_Web';
+$fo_font_body: 'fo-font-body';
+$fo_font_body_path: '../font/libre_baskerville/librebaskerville-regular_Web';
+//$fo_font_body_path: '../fon
 
-@font-face {
-    font-family: $fo_font_heading;
-    src: url('../font/BebasNeue-webfont.eot');
-    src: url('../font/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'), url('../font/BebasNeue-webfont.woff') format('woff'), url('../font/BebasNeue-webfont.ttf') format('truetype'), url('../font/BebasNeue-webfont.svg#bebas_neueregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+@mixin font($name, $path) {
+  font-family: $name;
+  src: url('#{$path}.eot'),
+  url('#{$path}.woff') format('woff'),
+  url('#{$path}.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: $fo_font_sub_heading;
-    src: url('../font/montserrat_bold_macroman/Montserrat-Bold-webfont.eot');
-    src: url('../font/montserrat_bold_macroman/Montserrat-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../font/montserrat_bold_macroman/Montserrat-Bold-webfont.woff') format('woff'),
-    url('../font/montserrat_bold_macroman/Montserrat-Bold-webfont.ttf') format('truetype'),
-    url('../font/montserrat_bold_macroman/Montserrat-Bold-webfont.svg#montserratbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
+  @include font($fo_font_heading, $fo_font_heading_path);
 }
 
 @font-face {
-    font-family: $fo_font_body;
-    src: url('../font/montserrat_regular_macroman/Montserrat-Regular-webfont.eot');
-    src: url('../font/montserrat_regular_macroman/Montserrat-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../font/montserrat_regular_macroman/Montserrat-Regular-webfont.woff') format('woff'),
-    url('../font/montserrat_regular_macroman/Montserrat-Regular-webfont.ttf') format('truetype'),
-    url('../font/montserrat_regular_macroman/Montserrat-Regular-webfont.svg#montserratregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  @include font($fo_font_sub_heading, $fo_font_sub_heading_path);
+  font-weight: bold;
+}
+
+@font-face {
+  @include font($fo_font_body, $fo_font_body_path);
 }
 
 h2 {
-    font-family: $fo_font_heading !important;
+  font-family: $fo_font_heading !important;
 }
 
 h3, h4, h5, h6 {
-    font-family: $fo_font_sub_heading !important;
+  font-family: $fo_font_sub_heading !important;
 }

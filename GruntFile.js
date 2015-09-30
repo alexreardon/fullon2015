@@ -87,7 +87,7 @@ module.exports = function(grunt) {
             prod: {
                 options: {
                     mangle: false,
-                    compress: true,
+                    compress: {},
                     banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
                         '<%= grunt.template.today("dd-mm-yyyy") %> */'
                 },
@@ -133,7 +133,7 @@ module.exports = function(grunt) {
                 options: {
                     ext: 'js,hbs',
                     env: {
-                        PORT: 8181
+                        PORT: 8080
                     }
                 }
             }
@@ -151,7 +151,7 @@ module.exports = function(grunt) {
                 // Based on default settings on http://modernizr.com/download/
                 'extra': {
                     'shiv': true,
-                    'printshiv': true,
+                    //'printshiv': true,
                     'load': true,
                     'mq': true,
                     'cssclasses': true

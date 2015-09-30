@@ -1,29 +1,21 @@
 @font-face {
-  font-family: 'bebas_neueregular';
-  src: url('../font/BebasNeue-webfont.eot');
-  src: url('../font/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'), url('../font/BebasNeue-webfont.woff') format('woff'), url('../font/BebasNeue-webfont.ttf') format('truetype'), url('../font/BebasNeue-webfont.svg#bebas_neueregular') format('svg');
-  font-weight: normal;
-  font-style: normal; }
+  font-family: 'fo-font-heading';
+  src: url('../font/lhf_prentice/lhfprenticefancy_Web.eot'), url('../font/lhf_prentice/lhfprenticefancy_Web.woff') format('woff'), url('../font/lhf_prentice/lhfprenticefancy_Web.ttf') format('truetype'); }
 
 @font-face {
-  font-family: 'montserratbold';
-  src: url('../font/montserrat_bold_macroman/Montserrat-Bold-webfont.eot');
-  src: url('../font/montserrat_bold_macroman/Montserrat-Bold-webfont.eot?#iefix') format('embedded-opentype'), url('../font/montserrat_bold_macroman/Montserrat-Bold-webfont.woff') format('woff'), url('../font/montserrat_bold_macroman/Montserrat-Bold-webfont.ttf') format('truetype'), url('../font/montserrat_bold_macroman/Montserrat-Bold-webfont.svg#montserratbold') format('svg');
-  font-weight: normal;
-  font-style: normal; }
+  font-family: 'fo-font-sub-heading';
+  src: url('../font/libre_baskerville/librebaskerville-bold_Web.eot'), url('../font/libre_baskerville/librebaskerville-bold_Web.woff') format('woff'), url('../font/libre_baskerville/librebaskerville-bold_Web.ttf') format('truetype');
+  font-weight: bold; }
 
 @font-face {
-  font-family: 'montserratregular';
-  src: url('../font/montserrat_regular_macroman/Montserrat-Regular-webfont.eot');
-  src: url('../font/montserrat_regular_macroman/Montserrat-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('../font/montserrat_regular_macroman/Montserrat-Regular-webfont.woff') format('woff'), url('../font/montserrat_regular_macroman/Montserrat-Regular-webfont.ttf') format('truetype'), url('../font/montserrat_regular_macroman/Montserrat-Regular-webfont.svg#montserratregular') format('svg');
-  font-weight: normal;
-  font-style: normal; }
+  font-family: 'fo-font-body';
+  src: url('../font/libre_baskerville/librebaskerville-regular_Web.eot'), url('../font/libre_baskerville/librebaskerville-regular_Web.woff') format('woff'), url('../font/libre_baskerville/librebaskerville-regular_Web.ttf') format('truetype'); }
 
 h2 {
-  font-family: 'bebas_neueregular' !important; }
+  font-family: 'fo-font-heading' !important; }
 
 h3, h4, h5, h6 {
-  font-family: 'montserratbold' !important; }
+  font-family: 'fo-font-sub-heading' !important; }
 
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
@@ -844,7 +836,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 body {
-  font-family: 'montserratregular', Arial, sans-serif;
+  font-family: 'fo-font-body', Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #FFF;
@@ -923,7 +915,7 @@ hr {
   clip: auto; }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: 'bebas_neueregular', 'montserratregular', Arial, sans-serif;
+  font-family: 'fo-font-heading', 'fo-font-body', Arial, sans-serif;
   font-weight: normal;
   line-height: 1.1;
   color: inherit; }
@@ -6570,6 +6562,18 @@ button.close {
 .l-margin-bottom-gutter-half {
   margin-bottom: 15px; }
 
+.l-padding-top-gutter {
+  padding-top: 30px; }
+
+.l-padding-top-gutter-half {
+  padding-top: 15px; }
+
+.l-padding-bottom-gutter {
+  padding-bottom: 30px; }
+
+.l-padding-bottom-gutter-half {
+  padding-bottom: 15px; }
+
 .l-margin-top-header-nav {
   margin-top: 50px; }
 
@@ -6589,22 +6593,26 @@ button.close {
   .fo-navbar li > a {
     font-size: 18px; }
 
+.navbar-brand {
+  padding: 0;
+  width: 38px; }
+
 .fo-navbar-stphils-logo {
   background-image: url("/public/images/stphils-logo-transparent-colour.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 38px 38px;
-  margin-left: 0 !important;
+  margin-left: 12px !important;
   text-indent: -100001px; }
 
 .fo-navbar-fo-logo {
-  background-image: url("/public/images/logo/FullOnLogo-01_W_TinyPNG.png");
+  background-image: url('/public/images/logo/logo-small.svg');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 114.4086021505px 38px;
+  background-size: 38px 38px;
+  padding-top: 6px;
   margin-left: 0 !important;
-  text-indent: -100001px;
-  width: 114.4086021505px; }
+  text-indent: -100001px; }
   @media (max-width: 767px) {
     .fo-navbar-fo-logo {
       margin-left: 15px !important; } }
@@ -6659,7 +6667,7 @@ button.close {
   transition-duration: 1s;
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
-  background-image: url("/public/images/landing/landing.jpg");
+  background-image: url("/public/video/landing.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 1;
@@ -6677,13 +6685,14 @@ button.close {
 
 .landing-logo {
   text-indent: -100001px;
-  background-image: url("/public/images/logo/FullOnLogo-01_W_SmallPNG.png");
+  background-image: url('/public/images/logo/logo.svg');
   background-repeat: no-repeat;
-  background-size: 280px 93px;
+  background-size: 100%;
   left: 50%;
   margin-left: -140px;
-  height: 93px;
+  height: 280px;
   position: absolute;
+  opacity: 1;
   top: 150px;
   width: 280px;
   z-index: 30;
@@ -6694,11 +6703,12 @@ button.close {
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease; }
   .is-trailer-playing .landing-logo {
-    -webkit-transform: translateY(-115px) scale(0.5);
-    -moz-transform: translateY(-115px) scale(0.5);
-    -ms-transform: translateY(-115px) scale(0.5);
-    -o-transform: translateY(-115px) scale(0.5);
-    transform: translateY(-115px) scale(0.5); }
+    -webkit-transform: scale(0.2);
+    -moz-transform: scale(0.2);
+    -ms-transform: scale(0.2);
+    -o-transform: scale(0.2);
+    transform: scale(0.2);
+    opacity: 0; }
 
 #trailer-video {
   opacity: 0;

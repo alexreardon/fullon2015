@@ -72,7 +72,7 @@ $z-index-logo: 30;
     @include transition-duration($transition-duration);
     @include transition-timing-function(ease);
 
-    background-image: url("/public/images/landing/landing.jpg");
+    background-image: url("/public/video/landing.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 1;
@@ -97,16 +97,16 @@ $z-index-logo: 30;
 
 .landing-logo {
     $width: 280px;
-    $height: 93px;
     $top: 150px;
     text-indent: -100001px;
-    background-image: url("/public/images/logo/FullOnLogo-01_W_SmallPNG.png");
+    background-image: url($fo-logo-path);
     background-repeat: no-repeat;
-    background-size: $width $height;
+    background-size: 100%;
     left: 50%;
     margin-left: -$width / 2;
-    height: $height;
+    height: $width;
     position: absolute;
+    opacity: 1;
     top: $top;
     width: $width;
     z-index: $z-index-logo;
@@ -116,7 +116,8 @@ $z-index-logo: 30;
     @include transition-timing-function(ease);
 
     .is-trailer-playing & {
-        @include transform(translateY(-$top + $navbar-height - ($grid-gutter-width / 2)) scale(0.5));
+        @include transform(scale(0.2));
+        opacity: 0;
     }
 
 }

@@ -1,4 +1,6 @@
+$fo-logo-width: $navbar-height - ($padding-base-vertical * 2);
 .fo-navbar {
+
     opacity: 1;
 
     @include transition-property(opacity);
@@ -14,34 +16,41 @@
     }
 }
 
+.navbar-brand {
+    padding: 0;
+    width: $fo-logo-width;
+}
+
 .fo-navbar-stphils-logo {
-    $width: $navbar-height - ($padding-base-vertical * 2);
+    $fo-logo-width: $navbar-height - ($padding-base-vertical * 2);
     background-image: url("/public/images/stphils-logo-transparent-colour.png");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: $width $width;
+    background-size: $fo-logo-width $fo-logo-width;
 
-    margin-left: 0 !important;
+    margin-left: $padding-base-horizontal !important;
     text-indent: -100001px;
-
 }
 
 .fo-navbar-fo-logo {
-    $width: 280px;
-    $height: 93px;
-    $ratio: $width / $height;
+    //$width: 280px;
+    //$height: 93px;
+    //$ratio: $width / $height;
     $adjusted_height: $navbar-height - ($padding-base-vertical * 2);
-    $adjusted_width: $ratio * $adjusted_height;
+    //$adjusted_height: $navbar-height;
+    //$adjusted_width: $ratio * $adjusted_height;
 
-    background-image: url("/public/images/logo/FullOnLogo-01_W_TinyPNG.png");
+    background-image: url($fo-logo-path-small);
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: $adjusted_width $adjusted_height;
+    background-size: $adjusted_height $adjusted_height;
+    //height: $adjusted_height;
+    padding-top: $padding-base-vertical;
 
     margin-left: 0 !important;
 
     text-indent: -100001px;
-    width: $adjusted_width;
+    //width: $adjusted_width;
 
     // mobile only
     @media (max-width: $screen-xs-max) {

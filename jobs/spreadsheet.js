@@ -29,18 +29,21 @@ function get_spread_sheet(cb) {
 
     var sheet = new GoogleSpreadsheet(config.google_spreadsheet_key);
 
-    sheet.setAuth(config.google_username, config.google_password, function(err) {
+    console.log('getting da rows');
+    sheet.getRows(1, function(err, data) {
         if (err) {
             cb(err);
         }
-
-        sheet.getRows(1, function(err, data) {
-            if (err) {
-                cb(err);
-            }
-            cb(null, data);
-        });
+        cb(null, data);
     });
+
+    //sheet.setAuth(config.google_username, config.google_password, function(err) {
+    //    if (err) {
+    //        cb(err);
+    //    }
+    //
+    //
+    //});
 
 }
 

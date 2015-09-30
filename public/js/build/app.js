@@ -195,8 +195,8 @@ fullon.views.index = Backbone.View.extend({
 
         this.$nav_bar = $('.fo-navbar');
         this.$landing = $('.landing');
-        this.$landing_video = $('.landing-video');
-        this.landing_video = this.$landing_video[0];
+        //this.$landing_video = $('.landing-video');
+        //this.landing_video = this.$landing_video[0];
 
         this.$trailer_video_launch = $('.trailer-video-launch');
         this.$trailer_video = $('#trailer-video');
@@ -211,9 +211,9 @@ fullon.views.index = Backbone.View.extend({
             this.showTrailer();
         }.bind(this));
 
-        this.landing_video.oncanplay = function() {
-            this.onLandingVideoReady();
-        }.bind(this);
+        //this.landing_video.oncanplay = function() {
+        //    this.onLandingVideoReady();
+        //}.bind(this);
 
         this.$trailer_video_close.on('click', function() {
             this.stopTrailer();
@@ -221,16 +221,19 @@ fullon.views.index = Backbone.View.extend({
 
     },
 
-    onLandingVideoReady: function() {
-
-        // update ui
-        this.$landing_video.addClass('is-ready');
-        this.landing_video.play();
-        console.log('playing video');
-    },
+    //onLandingVideoReady: function() {
+    //
+    //    // update ui
+    //    this.$landing_video.removeClass('hide').addClass('show');
+    //    this.landing_video.play();
+    //    console.log('playing video');
+    //},
 
     showTrailer: function() {
-        console.log('show trailer');
+        if(this.$landing.hasClass('is-trailer-playing')) {
+            return console.log('not playing trailer as it is already playing');
+        }
+
         this.setTrailerMode(true);
     },
 

@@ -5,7 +5,7 @@ var format = require('util').format,
 // request access from Alex Reardon
 
 // used in multiple places
-var date_earlybird_end = '17.11.2014',
+var date_earlybird_end = '15.11.2015',
     date_format_short = 'DD.MM.YYYY';
 
 var config = {
@@ -37,7 +37,7 @@ var config = {
         password: process.env.fullon_paypal_password || '1381729133',
         signature: process.env.fullon_paypal_signature || 'An5ns1Kso7MWUdW4ErQKJJJ4qi4-AuUF7YBYnzvqG3J1tnJzoLJv0Fpj',
         currency_code: 'AUD',
-        sandbox_mode: (process.env.fullon_paypal_sandbox_mode === 'on' ? true : false)
+        sandbox_mode: process.env.fullon_paypal_sandbox_mode === 'on'
     },
 
     // late registration code (can be used to reactivate registrations)
@@ -63,10 +63,10 @@ var config = {
         date_format_ical: 'YYYYMMDDTHHmmssZ',
         date_format_time: 'HH:mm',
 
-        date_camp_start: '02.01.2015 10:00',
-        date_camp_end: '07.01.2015 15:00',
+        date_camp_start: '02.01.2016 10:00',
+        date_camp_end: '07.01.2016 15:00',
         // 3pm
-        date_register_end: '15.12.2014',
+        date_register_end: '13.12.2015',
         date_earlybird_end: date_earlybird_end,
 
         // camper types
