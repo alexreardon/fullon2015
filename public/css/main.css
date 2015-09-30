@@ -6643,7 +6643,7 @@ button.close {
   height: auto;
   min-width: 100%;
   min-height: 100%;
-  opacity: 0;
+  opacity: 1;
   width: auto;
   z-index: 10;
   -webkit-transition-property: opacity;
@@ -6652,8 +6652,6 @@ button.close {
   transition-duration: 1s;
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease; }
-  .landing-video.is-ready {
-    opacity: 1; }
   .is-trailer-playing .landing-video {
     opacity: 0; }
   .no-video .landing-video {

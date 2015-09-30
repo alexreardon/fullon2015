@@ -43,7 +43,7 @@ $z-index-logo: 30;
     min-width: 100%;
     min-height: 100%;
 
-    opacity: 0;
+    opacity: 1;
     // allow for stretch
     width: auto;
     z-index: $z-index-landing-video;
@@ -51,10 +51,6 @@ $z-index-logo: 30;
     @include transition-property(opacity);
     @include transition-duration($transition-duration);
     @include transition-timing-function(ease);
-
-    &.is-ready {
-        opacity: 1;
-    }
 
     .is-trailer-playing & {
         opacity: 0;
