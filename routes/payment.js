@@ -38,7 +38,7 @@ exports.make_payment = function (options) {
 		PAYMENTREQUEST_0_CURRENCYCODE: config.paypal.currency_code,
 		PAYMENTREQUEST_0_PAYMENTACTION: 'Sale',
 		L_PAYMENTREQUEST_0_INVNUM0: options._id,
-		L_PAYMENTREQUEST_0_NAME0: 'Full On 2014',
+		L_PAYMENTREQUEST_0_NAME0: 'Full On',
 		L_PAYMENTREQUEST_0_QTY0: 1,
 		L_PAYMENTREQUEST_0_AMT0: options.total
 	};
