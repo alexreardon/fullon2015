@@ -84,7 +84,7 @@ var config = {
                 icon: 'fa-paper-plane-o'
             },
             leader: {
-                fee: 320,
+                fee: 330,
                 description: 'The Masters',
                 icon: 'fa-coffee'
             }
